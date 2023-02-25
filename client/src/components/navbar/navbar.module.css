@@ -22,9 +22,17 @@
     justify-content: center;
 }
 
-.main_nav .nav_logo h1 {
+.main_nav .nav_logo a {
+    /* margin-left: 70px; */
     font-weight: lighter;
+    text-decoration: none;
+    color: white;
     letter-spacing: 1px;
+}
+
+.main_nav .nav_logo img {
+    width: 75px;
+    height: 90px;
 }
 
 .main_nav .nav_links {
