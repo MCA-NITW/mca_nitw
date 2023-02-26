@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import classes from "./navbar.module.css";
 
 const Nav = () => {
@@ -15,9 +15,30 @@ const Nav = () => {
           </Link>
         </div>
         <div className={classes.nav_links}>
-          <Link to="/">Home</Link>
-          <Link to="/about">About us</Link>
-          <Link to="/contact">Contact</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            About us
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Contact
+          </NavLink>
         </div>
         <div className={classes.nav_btns}>
           <button className={classes.btn}>Sign in/Sign up</button>

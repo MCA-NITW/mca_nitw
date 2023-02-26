@@ -1,89 +1,50 @@
 .main_nav {
-    background-color: #000;
-    height: 60px;
+    margin-top: 1%;
+    background-color: transparent;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0rem 1rem;
     z-index: 10;
     position: sticky;
-    top: 0;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.235);
 }
 
 .main_nav .nav_logo {
-    margin-left: 20px;
-    color: #fff;
+    margin-left: 1%;
     cursor: pointer;
-    text-decoration: none;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main_nav .nav_logo a {
-    /* margin-left: 70px; */
-    font-weight: lighter;
-    text-decoration: none;
-    color: white;
-    letter-spacing: 1px;
 }
 
 .main_nav .nav_logo img {
-    width: 75px;
-    height: 90px;
+    width: 5rem;
+    height: 5rem;
 }
 
 .main_nav .nav_links {
     display: flex;
     justify-content: space-between;
-    width: 320px;
-    list-style: none;
+    width: 25%;
     align-items: center;
 }
 
 .main_nav .nav_links a {
-    letter-spacing: 1px;
+    letter-spacing: 0.15rem;
     color: #aaa;
     text-decoration: none;
     font-size: 1.1rem;
-    width: fit-content;
     padding: 0.6rem 0.8rem;
 }
 
-.main_nav .nav_links a:hover {
+.main_nav .nav_links a:hover,
+.main_nav .nav_links a.active {
     color: #fff;
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.235);
+    border-radius: 10px;
 }
-
-.main_nav .nav_btns {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1rem;
-}
-
-/* .main_nav .nav_btns a {
-    letter-spacing: 1px;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: #fff;
-    cursor: pointer;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid #aaa;
-}
-
-.main_nav .nav_btns a:hover {
-    border-bottom: 2px solid #fff;
-} */
 
 .btn{
     background-color: #bbb;
-    color: #000;
     border: none;
-    outline: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
@@ -92,7 +53,7 @@
 
 .btn:hover{
     background-color: #fff;
-    color: #444;
+    color: #000;
 }
 
 .btn:active{
@@ -103,4 +64,5 @@
     background-color: #aaa;
     color: #fff;
     cursor: not-allowed;
+    transform: none;
 }
