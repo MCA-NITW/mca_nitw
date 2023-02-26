@@ -41,7 +41,9 @@ const Nav = () => {
           </NavLink>
         </div>
         <div className={classes.nav_btns}>
-          <button className={classes.btn}>Sign in/Sign up</button>
+          <Link to="/signin">
+            <button className={classes.btn}>Sign in/Sign up</button>
+          </Link>
         </div>
       </nav>
       <Outlet />
