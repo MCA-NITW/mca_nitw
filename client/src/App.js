@@ -1,11 +1,11 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/navbar/navbar.jsx";
-import Home from "./pages/home/home.jsx";
-import About from "./pages/about/about.jsx";
-import Contact from "./pages/contact/contact.jsx";
-import Signinup from "./pages/signinup/signinup.jsx";
-import ErrorPage from "./pages/errorpage/ErrorPage.jsx";
+import Home from "./pages/Home/home.jsx";
+import About from "./pages/About/about.jsx";
+import Contact from "./pages/Contact/contact.jsx";
+import Authentication from "./pages/Authentication/Authentication";
+import ErrorPage from "./pages/Error/ErrorPage.jsx";
 
 function App() {
   const Router = createBrowserRouter([
@@ -26,12 +26,14 @@ function App() {
           path: "/contact",
           element: <Contact />,
         },
+        
       ],
     },
     {
-      path: "/signin",
-      element: <Signinup />,
+      path: "/auth",
+      element: <Authentication />,
     },
+    
   ]);
   return <RouterProvider router={Router} />;
 }
