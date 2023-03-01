@@ -39,6 +39,14 @@ const Nav = () => {
           >
             Contact
           </NavLink>
+          <NavLink
+            to="/connect"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Connect
+          </NavLink>
         </div>
         <div className={classes.nav_btns}>
           <Link to="/auth?mode=login">

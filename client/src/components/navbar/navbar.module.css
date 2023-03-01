@@ -22,7 +22,7 @@
 .main_nav .nav_links {
     display: flex;
     justify-content: space-between;
-    width: 25%;
+    width: 40%;
     align-items: center;
 }
 

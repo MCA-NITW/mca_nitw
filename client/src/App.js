@@ -6,6 +6,8 @@ import About from "./pages/About/about.jsx";
 import Contact from "./pages/Contact/contact.jsx";
 import Authentication from "./pages/Authentication/Authentication";
 import ErrorPage from "./pages/Error/ErrorPage.jsx";
+import Connect from "./pages/Connect/Connect.jsx";
+import { loader as userLoader } from "./pages/Connect/Connect";
 
 function App() {
   const Router = createBrowserRouter([
@@ -26,14 +28,17 @@ function App() {
           path: "/contact",
           element: <Contact />,
         },
-        
+        {
+          path: "/connect",
+          element: <Connect />,
+          loader: userLoader,
+        },
       ],
     },
     {
       path: "/auth",
       element: <Authentication />,
     },
-    
   ]);
   return <RouterProvider router={Router} />;
 }
