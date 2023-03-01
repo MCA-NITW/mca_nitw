@@ -1,4 +1,4 @@
-.main {
+.card {
     text-align: center;
     padding: 2rem;
     width: 35%;
@@ -19,8 +19,13 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 1rem;
+    color: blue;
   }
-  
+
+ .toggle {
+  color: indigo;
+ }
+
   .labelText {
     text-align: center;
     width: 100%;

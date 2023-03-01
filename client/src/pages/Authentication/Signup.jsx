@@ -17,7 +17,7 @@ const Signup = () => {
   return (
     <div>
       <AuthNavigation />
-      <div className={classes.main}>
+      <div className={classes.card}>
         <div style={{ marginBottom: "3rem" }}>
           <div className={classes.heading}>
             <LockIcon sx={{ color: "white" }} />
@@ -100,7 +100,7 @@ const Signup = () => {
           Sign Up
         </Button>
         <div className={classes.link}>
-          <Link to="/auth?mode=login">Already have an account? LogIn here</Link>
+          <Link to="/auth?mode=login" className={classes.toggle}>Already have an account? LogIn here</Link>
         </div>
         <div>
           <div className={classes.labelText}>
