@@ -1,0 +1,18 @@
+.search {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 30%;
+    margin: 1rem auto;
+    border-radius: 2rem;
+}
+
+.userList {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
