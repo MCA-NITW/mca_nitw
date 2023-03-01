@@ -37,7 +37,7 @@ const Nav = () => {
               isActive ? classes.active : undefined
             }
           >
-            Contact
+            Contact us
           </NavLink>
         </div>
         <div className={classes.nav_btns}>
