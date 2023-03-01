@@ -5,9 +5,7 @@ import Signup from "./Signup";
 
 const Authentication = () => {
   const [searchParams] = useSearchParams();
-
   const isLogin = searchParams.get('mode') === 'login';
-
   return (
     <div>{isLogin? <Login />: <Signup />}</div>
   );

@@ -8,8 +8,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #cccccc;
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/23470.jpg");
   overflow: overlay;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
