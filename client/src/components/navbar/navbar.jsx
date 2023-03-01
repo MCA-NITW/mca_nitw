@@ -41,7 +41,7 @@ const Nav = () => {
           </NavLink>
         </div>
         <div className={classes.nav_btns}>
-          <Link to="/signin">
+          <Link to="/auth?mode=login">
             <button className={classes.btn}>Sign in/Sign up</button>
           </Link>
         </div>
