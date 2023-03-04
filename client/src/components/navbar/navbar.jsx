@@ -29,7 +29,7 @@ const Nav = () => {
               isActive ? classes.active : undefined
             }
           >
-            About us
+            About
           </NavLink>
           <NavLink
             to="/contact"
@@ -37,7 +37,7 @@ const Nav = () => {
               isActive ? classes.active : undefined
             }
           >
-            Contact us
+            Contact
           </NavLink>
           <NavLink
             to="/connect"

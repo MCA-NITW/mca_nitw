@@ -4,7 +4,6 @@ import AuthNavigation from "../../Layout/AuthNavigation";
 import classes from "./Authentication.module.css";
 import {
   Button,
-  CssBaseline,
   TextField,
   FormControlLabel,
   Checkbox,

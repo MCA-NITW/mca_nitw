@@ -1,128 +1,126 @@
-.contact-main{
-    margin-top: -4rem;
-    width: 100%;
-    height: 100vh;
-    background-color: transparent;
+.contact{
+    background-color: var(--bg-black-900);
     padding: 50px 0;
+    text-align: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
 }
 
-.contact-form{
-    margin-top: 4rem;
-    width: 75%;
+.contact h1{
+    font-size: 2.4rem;
+    color: var(--text-black-700);
+    margin-bottom: 20px;
+}
+
+.contact__top{
+    width: 37.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.contact__top .card{
+    width: 100%;
+    background-color: var(--bg-black-100);
+    padding: 0 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px 0;
-    border-radius: 10px;
+    flex-direction: row;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--bg-black-50);
 }
 
-.contact-form form{
-    padding: 20px 0;
-    width: 50%;
+.contact__bottom{
+    width: 37.5rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    flex-direction: column;
 }
 
-.contact-form form label{
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
+.contact__bottom form{
+    background-color: var(--bg-black-100);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--bg-black-50);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.contact-form form input{
-    width: 80%;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0 10px;
-    margin-bottom: 20px;
-}
-
-.contact-form form textarea{
-    width: 80%;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.contact-form form button{
-    width: 100px;
-    height: 40px;
+.contact__bottom form input,
+.contact__bottom form textarea{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--bg-black-50);
 }
 
-.contact-form form button:hover{
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
+.contact__bottom form textarea{
+    resize: none;
+    height: 200px;
 }
 
-.contact-info{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.contact-info-item{
+.contact__bottom form button{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.contact-info-item div{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.contact-info-item div a{
-    text-decoration: none;
-}
-
-.social-media{
-
-    margin-top: 3rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.social-media a{
-    width: 50px;
-    height: 50px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--bg-black-50);
+    background-color: var(--text-black-900);
+    color: var(--bg-black-900);
+    box-shadow: 0 0 10px var(--bg-black-50);
+    font-size: 1rem;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
-.social-media a:hover{
-    background-color: #000;
-    color: #fff;
+.contact__bottom form button:hover{
+    background-color: var(--bg-black-50);
+    color: var(--text-black-700);
 }
 
+.contact__bottom form button:active{
+    transform: scale(0.95);
+}
+
+.contact__bottom form button:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 768px){
+    .contact{
+        padding: 50px 0;
+    }
+    .contact__top{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .contact__bottom{
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .contact__bottom form{
+        width: 90%;
+    }
+    .contact__top .card{
+        width: 90%;
+        flex-direction: column;
+    }
+}
