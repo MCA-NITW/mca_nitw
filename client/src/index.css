@@ -3,16 +3,28 @@
   margin: 0;
   padding: 0;
 }
+:root {
+  --bg-black-900: #f2f2fc;
+  --bg-black-100: #fdf9ff;
+  --bg-black-50: #e8dfec;
+  --text-black-700: #504e70;
+  --text-black-900: #212031;
+}
+
+body.dark {
+  --bg-black-900: #151515;
+  --bg-black-100: #222222;
+  --bg-black-50: #393939;
+  --text-black-700: #e9e9e9;
+  --text-black-900: #ffffff;
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url("https://wallpapershome.com/images/pages/pic_h/23470.jpg");
+  background-color: var(--bg-black-900);
   overflow: overlay;
   background-attachment: fixed;
   background-position: center;
 }
-
-
-
