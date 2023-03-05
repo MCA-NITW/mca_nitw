@@ -40,7 +40,7 @@ function App() {
       element: <Authentication />,
     },
   ]);
-  return <RouterProvider router={Router} />;
+  return <RouterProvider router={Router} />
 }
 
 export default App;

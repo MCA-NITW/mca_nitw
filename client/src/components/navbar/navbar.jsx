@@ -1,4 +1,6 @@
+import { IconButton } from "@mui/material";
 import React from "react";
+import { FaLightbulb } from "react-icons/fa";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import classes from "./navbar.module.css";
 
@@ -47,6 +49,17 @@ const Nav = () => {
           >
             Connect
           </NavLink>
+          <IconButton style={{color: "var(--text-black-900"}} onClick={() => {
+            const bodyDOM = document.querySelector("body");
+            const classes = bodyDOM.classList;
+            if(classes.length === 0) {
+              bodyDOM.classList.add('dark');
+            } else {
+              bodyDOM.classList.remove('dark');
+            }
+          }}>
+            <FaLightbulb />
+          </IconButton>
         </div>
         <div className={classes.nav_btns}>
           <Link to="/auth?mode=login">
