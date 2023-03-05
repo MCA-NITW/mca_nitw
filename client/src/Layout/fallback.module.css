@@ -1,5 +1,5 @@
 .fallback {
   text-align: center;
   margin: 4%;
-  color: white;
+  color: var(--text-black-700);
 }

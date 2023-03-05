@@ -12,7 +12,7 @@ const Connect = () => {
   const data = useLoaderData();
   const allUsers = data.users;
   return (
-    <>
+    <div className={classes.connect_main}>
       <div className={classes.search}>
         <InputBase
           placeholder="Search..."
@@ -31,7 +31,7 @@ const Connect = () => {
           {(allUsers) => <UserList allUsers={allUsers} />}
         </Await>
       </Suspense>
-    </>
+    </div>
   );
 };
 
