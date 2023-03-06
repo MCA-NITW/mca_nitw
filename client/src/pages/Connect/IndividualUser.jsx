@@ -9,29 +9,24 @@ import classes from "./Connect.module.css";
 
 const IndividualUser = (props) => {
   return (
-    <Card className={classes.ind_card}>
+    <div className={classes.ind_card}>
       <CardMedia title={props.user.name}>
-        <img
-          src={props.user.image}
-          alt="user"
-        />
+        <img src={props.user.image} alt="user" />
       </CardMedia>
       <CardContent className={classes.ind_component}>
         <Typography gutterBottom variant="h5" component="div">
           {props.user.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2">
           Institute: {props.user.Institute}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Batch: {props.user.Batch}
-        </Typography>
+        <Typography variant="body2">Batch: {props.user.Batch}</Typography>
       </CardContent>
       <CardActions className={classes.ind_links}>
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
-    </Card>
+    </div>
   );
 };
 
