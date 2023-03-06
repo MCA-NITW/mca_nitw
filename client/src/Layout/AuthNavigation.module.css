@@ -1,28 +1,34 @@
-.main {
+.main{
+    background-color: var(--bg-black-100);
+    height: 3rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 4rem;
-    z-index: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem 1rem;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
+        0 0 5px 1px rgba(255, 255, 255, 0.535);
 }
 
-.main a, button {
-    display: inline-block;
-    padding: 0.5rem;
-    border-radius: 0 1rem 0 1rem;
-    font-weight: bold;
+.main a{
+    background-color: var(--text-black-900);
+    color: var(--bg-black-100);
     text-decoration: none;
-}
-
-.main button:active {
+    border: none;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.235),
+            0 0 10px 1px rgba(255, 255, 255, 0.535);
 }
 
-.main button:active {
-    transform: scale(0.9);
+.main a:hover{
+    background-color: var(--bg-black-50);
+    color: var(--text-black-900);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.235),
+            0 0 10px 1px rgba(255, 255, 255, 0.535);
 }
 
-.backBtn {
-    color: white;
-}

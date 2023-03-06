@@ -1,8 +1,9 @@
 import React from 'react'
+import classes from './about.module.css'
 
 const about = () => {
   return (
-    <div>
+    <div className={classes.main}>
     </div>
   )
 }

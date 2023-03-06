@@ -1,0 +1,23 @@
+.main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-black-900);
+    margin-top: 5rem;
+    z-index: 100;
+    overflow: overlay;
+    rotate: 90deg;
+}
+.main button{
+    
+    background-color: var(--bg-black-900);
+    border: none;
+    color: var(--text-black-900);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 100;
+}
+
+
+

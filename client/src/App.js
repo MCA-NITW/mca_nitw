@@ -8,6 +8,7 @@ import Authentication from "./pages/Authentication/Authentication";
 import ErrorPage from "./pages/Error/ErrorPage.jsx";
 import Connect from "./pages/Connect/Connect.jsx";
 import { loader as userLoader } from "./pages/Connect/Connect";
+import Mode from "./components/mode/mode.jsx";
 
 function App() {
   const Router = createBrowserRouter([
@@ -37,10 +38,15 @@ function App() {
     },
     {
       path: "/auth",
-      element: <Authentication />,
-    },
+      element: <Authentication />
+    }
   ]);
-  return <RouterProvider router={Router} />
+  return (
+    <div>
+      <Mode />
+      <RouterProvider router={Router} />
+    </div>
+  );
 }
 
 export default App;
