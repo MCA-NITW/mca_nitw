@@ -5,27 +5,18 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import classes from "./Connect.module.css";
 
 const IndividualUser = (props) => {
   return (
-    <Card
-      sx={{
-        maxWidth: 345,
-        margin: "3rem",
-        width: "30%",
-        borderRadius: "0 2rem 0 2rem",
-      }}
-    >
-      <CardMedia sx={{ height: 140 }} title={props.user.name}>
+    <Card className={classes.ind_card}>
+      <CardMedia title={props.user.name}>
         <img
           src={props.user.image}
-          alt="user-image"
-          width="100%"
-          height="100%"
-          style={{ objectFit: "cover" }}
+          alt="user"
         />
       </CardMedia>
-      <CardContent>
+      <CardContent className={classes.ind_component}>
         <Typography gutterBottom variant="h5" component="div">
           {props.user.name}
         </Typography>
@@ -36,7 +27,7 @@ const IndividualUser = (props) => {
           Batch: {props.user.Batch}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions className={classes.ind_links}>
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>

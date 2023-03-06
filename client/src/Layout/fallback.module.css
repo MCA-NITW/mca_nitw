@@ -1,5 +1,9 @@
 .fallback {
-  text-align: center;
-  margin: 4%;
-  color: var(--text-black-700);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-black-700);
 }

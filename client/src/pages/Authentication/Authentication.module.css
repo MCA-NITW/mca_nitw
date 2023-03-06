@@ -1,42 +1,197 @@
-.card {
-    text-align: center;
-    padding: 2rem;
-    width: 35%;
-    margin: 2rem auto;
-    border: 1px solid black;
-    border-radius: 0 2rem 0 2rem;
-    background-color: white;
-  }
-  
-  .heading {
-    background-color: blue;
-    display: inline-block;
-    padding: 0.2rem;
-    border-radius: 0.3rem;
-  }
-  
-  .link {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-    color: blue;
-  }
+.auth_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-black-900);
+}
 
- .toggle {
-  color: indigo;
- }
+.card{
+  margin-top: 2rem;
+  background-color: var(--bg-black-100);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.235),
+              0 0 10px 1px rgba(255, 255, 255, 0.535);
+  padding: 2rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  .labelText {
-    text-align: center;
-    width: 100%;
-    border-bottom: 1px solid #b7c9cc;
-    line-height: 0.1em;
-    margin: 2rem 0 2rem;
-  }
+.heading{
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-black-900);
+  margin-bottom: 1rem;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.formGroup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup input{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3rem;
+  background-color: var(--bg-black-200);
+  color: var(--text-white-100);
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.235),
+              0 0 4px 1px rgba(255, 255, 255, 0.535);
   
-  .connectLinks {
-    display: flex;
-    height: 3rem;
-    justify-content: space-around;
-  }
-  
+  border: 1px solid transparent;
+}
+
+.formGroup input:focus{
+  border: 1px solid var(--bg-black-900);
+}
+
+.formGroup input::placeholder{
+  color: var(--text-black-700);
+}
+
+.formGroup input[type="submit"]{
+  background-color: var(--bg-black-900);
+  color: var(--text-black-700);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.formGroup input[type="submit"]:hover{
+  background-color: var(--bg-black-700);
+  color: var(--text-black-900);
+}
+
+.formGroup input[type="submit"]:active{
+  background-color: var(--bg-black-900);
+  color: var(--text-black-700);
+}
+
+.formGroup button{
+  margin-top: 1rem;
+  background-color: var(--text-black-900);
+  color: var(--bg-black-900);
+  border: none;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.235),
+              0 0 4px 1px rgba(255, 255, 255, 0.535);
+  transition: all 0.2s ease-in-out;
+}
+
+.formGroup button:hover{
+  background-color: var(--bg-black-50);
+  color: var(--text-black-900);
+}
+
+.formGroup button:active{
+  background-color: var(--bg-black-900);
+  color: var(--text-black-700);
+}
+
+.link{
+  color: var(--text-black-700);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover{
+  color: var(--text-black-900);
+}
+
+.link:active{
+  color: var(--text-black-700);
+}
+
+.loginwith{
+  color: var(--text-black-700);
+  font-size: 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.loginwith hr{
+  width: 100%;
+  border: 1px solid var(--text-black-700);
+}
+.loginwithtext{
+  display: flex;
+  width : 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginwithtext span{
+  text-align: center;
+  width: 100%;
+  color: var(--text-black-700);
+  font-size: 0.9rem;
+}
+
+.loginwithicons{
+  margin-top: 1rem;
+  width: 100%;
+  color: var(--text-black-700);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.loginwithicon{
+  color: var(--text-black-900);
+  background-color: var(--bg-black-100);
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-items: center;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.235),
+              0 0 4px 1px rgba(255, 255, 255, 0.535);
+  transition: all 0.2s ease-in-out;
+}
+
+.loginwithicon:hover{
+  color: var(--bg-black-900);
+  background-color: var(--text-black-900);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.235),
+              0 0 7px 1px rgba(255, 255, 255, 0.535);
+  transform: scale(1.1);
+}
+
+
+
+
