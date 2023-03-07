@@ -6,7 +6,8 @@
     margin-top: 5rem;
     z-index: 100;
     overflow: overlay;
-    rotate: 90deg;
+    border-radius: 0 50% 50% 0;
+    box-shadow: 0 0 10px 0px var(--text-black-900);
 }
 .main button{
     

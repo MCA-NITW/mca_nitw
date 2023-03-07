@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    min-height: 37.5rem;
     background-color: var(--bg-black-900);
     color: var(--text-black-900);
 }
@@ -17,26 +17,33 @@
     background-color: var(--bg-black-100);
     border-radius: 1rem;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2), 0 0 5px 1px rgba(255, 255, 255, 0.5);
-    width: 50%;
+    width: 40%;
 }
 
-.search input {
+.search .search_input{
     width: 100%;
-    height: 2rem;
+    height: 100%;
     border: none;
     outline: none;
     background-color: transparent;
-    color: var(--text-black-900);
+    padding: 0.5rem 1rem;
     font-size: 1.2rem;
-    padding: 0 1rem;
+    color: var(--text-black-900);
 }
 
-.search svg {
-    width: 2rem;
-    height: 2rem;
-    color: var(--text-black-900);
-    margin: 0 1rem;
+.search button{
+    background-color: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: var(--text-black-900);
+}
+
+.search button:hover{
+    background-color: var(--bg-black-50);
+    border-radius: 1rem;
 }
 
 .userList {
@@ -52,6 +59,7 @@
     padding-top: 2rem;
     color: var(--text-black-900);
 }
+
 
 .ind_card {
     display: flex;
@@ -81,7 +89,6 @@
 }
 
 .ind_component{
-    background-color: var(--bg-black-50);
     display: flex;
     width: 100%;
     height: 100%;
@@ -90,13 +97,46 @@
     align-items: flex-start;
     justify-content: center;
     cursor: pointer;
+    padding: 1rem;
 }
+
+.ind_username{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.ind_institute{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.ind_batch{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 .ind_links{
-    background-color: var(--bg-black-50);
     width: 100%;
     margin-top: -1rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    padding: 1rem;
+}
+
+.ind_links .btn{
+    background-color: var(--bg-black-50);
+    color: blue;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.ind_links .btn:hover{
+    transform: scale(1.1);
+    text-decoration: underline;
 }
