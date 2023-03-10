@@ -9,6 +9,7 @@ import ErrorPage from "./pages/Error/ErrorPage.jsx";
 import Connect from "./pages/Connect/Connect.jsx";
 import { loader as userLoader } from "./pages/Connect/Connect";
 import Mode from "./components/mode/mode.jsx";
+import Profile from "./pages/Fullprofile/profile.jsx"
 
 function App() {
   const Router = createBrowserRouter([
@@ -34,17 +35,22 @@ function App() {
           element: <Connect />,
           loader: userLoader,
         },
+        {
+          path: "/profile",
+          element: <Profile />,
+        },
       ],
     },
     {
       path: "/auth",
-      element: <Authentication />
-    }
+      element: <Authentication />,
+    },
   ]);
   return (
     <div>
       <Mode />
       <RouterProvider router={Router} />
+      {/* <Profile /> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaLightbulb } from "react-icons/fa";
+import {MdDarkMode} from 'react-icons/md'
 import classes from './mode.module.css'
 const mode = () => {
   return (
@@ -15,7 +15,7 @@ const mode = () => {
           }
         }}
       >
-        <FaLightbulb />
+        <MdDarkMode/>
       </button>
     </div>
   );

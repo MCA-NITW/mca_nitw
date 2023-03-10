@@ -11,18 +11,29 @@
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
         0 0 5px 1px rgba(255, 255, 255, 0.535);
 }
+.main .logo{
+    margin-right: 1%;
+}
+
+.main .logo img{
+    width: 5rem;
+    height: 5rem;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235), 0 0 5px 1px rgba(255, 255, 255, 0.535);
+}
 
 .main a{
+    font-size: 1.1rem;
+    letter-spacing: 0.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--text-black-900);
     color: var(--bg-black-100);
     text-decoration: none;
-    border: none;
-    padding: 0.5rem 1rem 0.5rem 0.5rem;
-    border-radius: 10px;
-    cursor: pointer;
+    padding: 0.5rem 0.8rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.235),
-            0 0 10px 1px rgba(255, 255, 255, 0.535);
+    gap: 0.3rem;
+    border-radius: 10px;
 }
 
 .main a:hover{

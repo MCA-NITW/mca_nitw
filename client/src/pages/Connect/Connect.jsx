@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
 import UserList from "./UserList";
 import { fallback } from "../../Layout/fallback";
-import { Await, useLoaderData } from "react-router-dom";
+import { Await, Outlet, useLoaderData } from "react-router-dom";
 import { defer } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
-import { InputBase, IconButton } from "@mui/material";
+import {BiSearch} from 'react-icons/bi'
 
 import classes from "./Connect.module.css";
 
@@ -14,17 +13,10 @@ const Connect = () => {
   return (
     <div className={classes.connect_main}>
       <div className={classes.search}>
-        <InputBase
-          placeholder="Search..."
-          sx={{ width: "80%", padding: "0.5rem" }}
-        />
-        <IconButton
-          onClick={() => {
-            console.log("hello");
-          }}
-        >
-          <SearchIcon color="white" />
-        </IconButton>
+        <input placeholder="Search..." className={classes.search_input}/>
+        <button className={classes.search_btn}>
+          <BiSearch/>
+        </button>
       </div>
       <Suspense fallback={fallback}>
         <Await resolve={allUsers}>

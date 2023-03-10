@@ -1,6 +1,6 @@
 .main{
     width: 100%;
-    height: 100vh;
+    min-height: 42.5rem;
     background-color: var(--bg-black-900);
     display: flex;
     flex-direction: column;
