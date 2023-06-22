@@ -1,0 +1,10 @@
+.main{
+    width: 100%;
+    min-height: 1rem;
+    background-color: var(--bg-black-900);
+    color: var(--text-black-900);
+    display: flex;
+    justify-content: center;
+    top: 100%;
+    bottom: 0;
+}
