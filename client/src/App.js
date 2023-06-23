@@ -9,7 +9,8 @@ import ErrorPage from "./pages/Error/ErrorPage.jsx";
 import Connect from "./pages/Connect/Connect.jsx";
 import { loader as userLoader } from "./pages/Connect/Connect";
 import Mode from "./components/mode/mode.jsx";
-import Profile from "./pages/Fullprofile/profile.jsx"
+import Profile from "./pages/Fullprofile/profile.jsx";
+import Footer from "./components/footer/footer.jsx";
 
 function App() {
   const Router = createBrowserRouter([
@@ -50,8 +51,10 @@ function App() {
     <div>
       <Mode />
       <RouterProvider router={Router} />
-      {/* <Profile /> */}
+      <Footer/>
+      
     </div>
+    
   );
 }
 
