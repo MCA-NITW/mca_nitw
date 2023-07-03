@@ -1,24 +1,5 @@
 {
   "dependencies": {
-    "concurrently": "^8.2.0",
-    "eslint": "^8.44.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-n": "^16.0.1",
-    "eslint-plugin-react": "^7.32.2",
-    "gh": "^2.8.9",
-    "nodemon": "^2.0.22",
-    "prettier": "^2.8.8",
-    "react-scripts": "^5.0.1",
-    "stylelint": "^15.9.0",
-    "stylelint-config-standard": "^33.0.0"
-  },
-  "devDependencies": {
-    "eslint-plugin-promise": "^6.1.1",
-    "jest": "^29.5.0"
-  },
-  "scripts": {
-    "dev": "concurrently \"cd server && nodemon index.js\"  \"cd client && npm start\"",
-    "test": "jest"
-  },
-  "version": "1.0.0"
+    "prettier": "^2.8.8"
+  }
 }
