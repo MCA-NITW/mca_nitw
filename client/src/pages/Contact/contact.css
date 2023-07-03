@@ -1,129 +1,129 @@
-.contact{
-    background-color: var(--bg-black-900);
-    padding: 50px 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    gap: 20px;
-    width: 100%;
+.contact {
+  background-color: var(--bg-black-900);
+  padding: 50px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 20px;
+  width: 100%;
 }
 
-.contact h1{
-    font-size: 2.4rem;
-    color: var(--text-black-700);
-    margin-bottom: 20px;
+.contact h1 {
+  font-size: 2.4rem;
+  color: var(--text-black-700);
+  margin-bottom: 20px;
 }
 
-.contact__top{
-    width: 37.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
+.contact__top {
+  width: 37.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
 }
 
-.contact__top .card{
-    width: 100%;
-    background-color: var(--bg-black-100);
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    margin: 20px 0;
-    border-radius: 20px;
-    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
-        0 0 5px 1px rgb(255 255 255 / 53.5%);
+.contact__top .card {
+  width: 100%;
+  background-color: var(--bg-black-100);
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px 0;
+  border-radius: 20px;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+    0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
-.contact__bottom{
-    width: 37.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.contact__bottom {
+  width: 37.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.contact__bottom form{
-    background-color: var(--bg-black-100);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
-        0 0 5px 1px rgb(255 255 255 / 53.5%);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.contact__bottom form {
+  background-color: var(--bg-black-100);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+    0 0 5px 1px rgb(255 255 255 / 53.5%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .contact__bottom form input,
-.contact__bottom form textarea{
+.contact__bottom form textarea {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px var(--bg-black-50);
+}
+
+.contact__bottom form textarea {
+  resize: none;
+  height: 200px;
+}
+
+.contact__bottom form button {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--text-black-900);
+  color: var(--bg-black-900);
+  box-shadow: 0 0 10px var(--bg-black-50);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.contact__bottom form button:hover {
+  background-color: var(--bg-black-50);
+  color: var(--text-black-700);
+}
+
+.contact__bottom form button:active {
+  transform: scale(0.95);
+}
+
+.contact__bottom form button:focus {
+  outline: none;
+}
+
+@media screen and (width <= 768px) {
+  .contact {
+    padding: 50px 0;
+  }
+
+  .contact__top {
     width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 0 10px var(--bg-black-50);
-}
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
-.contact__bottom form textarea{
-    resize: none;
-    height: 200px;
-}
-
-.contact__bottom form button{
+  .contact__bottom {
     width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 20px;
-    background-color: var(--text-black-900);
-    color: var(--bg-black-900);
-    box-shadow: 0 0 10px var(--bg-black-50);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
+    flex-direction: column;
+    justify-content: space-around;
+  }
 
-.contact__bottom form button:hover{
-    background-color: var(--bg-black-50);
-    color: var(--text-black-700);
-}
+  .contact__bottom form {
+    width: 90%;
+  }
 
-.contact__bottom form button:active{
-    transform: scale(0.95);
-}
-
-.contact__bottom form button:focus{
-    outline: none;
-}
-
-@media screen and (width <= 768px){
-    .contact{
-        padding: 50px 0;
-    }
-
-    .contact__top{
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .contact__bottom{
-        width: 100%;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    .contact__bottom form{
-        width: 90%;
-    }
-
-    .contact__top .card{
-        width: 90%;
-        flex-direction: column;
-    }
+  .contact__top .card {
+    width: 90%;
+    flex-direction: column;
+  }
 }

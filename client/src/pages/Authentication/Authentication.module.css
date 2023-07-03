@@ -8,12 +8,12 @@
   background-color: var(--bg-black-900);
 }
 
-.card{
+.card {
   margin-top: 2rem;
   background-color: var(--bg-black-100);
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgb(0 0 0 / 23.5%),
-              0 0 10px 1px rgb(255 255 255 / 53.5%);
+    0 0 10px 1px rgb(255 255 255 / 53.5%);
   padding: 2rem;
   width: 30rem;
   display: flex;
@@ -22,14 +22,14 @@
   justify-content: center;
 }
 
-.heading{
+.heading {
   font-size: 2rem;
   font-weight: 600;
   color: var(--text-black-900);
   margin-bottom: 1rem;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-.formGroup{
+.formGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +47,7 @@
   margin-bottom: 1rem;
 }
 
-.formGroup input{
+.formGroup input {
   width: 100%;
   padding: 0.5rem 1rem;
   border-radius: 3rem;
@@ -57,19 +57,19 @@
   font-weight: 500;
   outline: none;
   box-shadow: 0 0 4px 1px rgb(0 0 0 / 23.5%),
-              0 0 4px 1px rgb(255 255 255 / 53.5%);
+    0 0 4px 1px rgb(255 255 255 / 53.5%);
   border: 1px solid transparent;
 }
 
-.formGroup input:focus{
+.formGroup input:focus {
   border: 1px solid var(--bg-black-900);
 }
 
-.formGroup input::placeholder{
+.formGroup input::placeholder {
   color: var(--text-black-700);
 }
 
-.formGroup input[type="submit"]{
+.formGroup input[type="submit"] {
   background-color: var(--bg-black-900);
   color: var(--text-black-700);
   font-size: 1.2rem;
@@ -78,17 +78,17 @@
   transition: all 0.2s ease-in-out;
 }
 
-.formGroup input[type="submit"]:hover{
+.formGroup input[type="submit"]:hover {
   background-color: var(--bg-black-700);
   color: var(--text-black-900);
 }
 
-.formGroup input[type="submit"]:active{
+.formGroup input[type="submit"]:active {
   background-color: var(--bg-black-900);
   color: var(--text-black-700);
 }
 
-.formGroup button{
+.formGroup button {
   margin-top: 1rem;
   background-color: var(--text-black-900);
   color: var(--bg-black-900);
@@ -100,21 +100,21 @@
   width: 100%;
   padding: 0.5rem 1rem;
   box-shadow: 0 0 4px 1px rgb(0 0 0 / 23.5%),
-              0 0 4px 1px rgb(255 255 255 / 53.5%);
+    0 0 4px 1px rgb(255 255 255 / 53.5%);
   transition: all 0.2s ease-in-out;
 }
 
-.formGroup button:hover{
+.formGroup button:hover {
   background-color: var(--bg-black-50);
   color: var(--text-black-900);
 }
 
-.formGroup button:active{
+.formGroup button:active {
   background-color: var(--bg-black-900);
   color: var(--text-black-700);
 }
 
-.link{
+.link {
   color: var(--text-black-700);
   font-size: 0.9rem;
   font-weight: 600;
@@ -122,15 +122,15 @@
   transition: all 0.2s ease-in-out;
 }
 
-.link:hover{
+.link:hover {
   color: var(--text-black-900);
 }
 
-.link:active{
+.link:active {
   color: var(--text-black-700);
 }
 
-.loginwith{
+.loginwith {
   color: var(--text-black-700);
   font-size: 1.2rem;
   width: 100%;
@@ -141,27 +141,27 @@
   margin-top: 1rem;
 }
 
-.loginwith hr{
+.loginwith hr {
   width: 100%;
   border: 1px solid var(--text-black-700);
 }
 
-.loginwithtext{
+.loginwithtext {
   display: flex;
-  width : 100%;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.loginwithtext span{
+.loginwithtext span {
   text-align: center;
   width: 100%;
   color: var(--text-black-700);
   font-size: 0.9rem;
 }
 
-.loginwithicons{
+.loginwithicons {
   margin-top: 1rem;
   width: 100%;
   color: var(--text-black-700);
@@ -171,7 +171,7 @@
   justify-content: space-around;
 }
 
-.loginwithicon{
+.loginwithicon {
   color: var(--text-black-900);
   background-color: var(--bg-black-100);
   padding: 0.5rem 1rem;
@@ -180,18 +180,14 @@
   cursor: pointer;
   align-items: center;
   box-shadow: 0 0 4px 1px rgb(0 0 0 / 23.5%),
-              0 0 4px 1px rgb(255 255 255 / 53.5%);
+    0 0 4px 1px rgb(255 255 255 / 53.5%);
   transition: all 0.2s ease-in-out;
 }
 
-.loginwithicon:hover{
+.loginwithicon:hover {
   color: var(--bg-black-900);
   background-color: var(--text-black-900);
   box-shadow: 0 0 7px 1px rgb(0 0 0 / 23.5%),
-              0 0 7px 1px rgb(255 255 255 / 53.5%);
+    0 0 7px 1px rgb(255 255 255 / 53.5%);
   transform: scale(1.1);
 }
-
-
-
-

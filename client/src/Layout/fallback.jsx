@@ -1,4 +1,4 @@
-import classes from './fallback.module.css';
+import classes from "./fallback.module.css";
 
 export const fallback = (
   <div className={classes.fallback}>

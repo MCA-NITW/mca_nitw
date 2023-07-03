@@ -1,6 +1,6 @@
-import React from 'react'
-import {MdDarkMode} from 'react-icons/md'
-import classes from './mode.module.css'
+import React from "react";
+import { MdDarkMode } from "react-icons/md";
+import classes from "./mode.module.css";
 const mode = () => {
   return (
     <div className={classes.main}>
@@ -15,10 +15,10 @@ const mode = () => {
           }
         }}
       >
-        <MdDarkMode/>
+        <MdDarkMode />
       </button>
     </div>
   );
-}
+};
 
-export default mode
+export default mode;
