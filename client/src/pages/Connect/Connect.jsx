@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import UserList from "./UserList";
 import { fallback } from "../../Layout/fallback";
-import { Await, Outlet, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData } from "react-router-dom";
 import { defer } from "react-router-dom";
 import {BiSearch} from 'react-icons/bi'
 

@@ -7,10 +7,10 @@
     z-index: 100;
     overflow: overlay;
     border-radius: 0 50% 50% 0;
-    box-shadow: 0 0 10px 0px var(--text-black-900);
+    box-shadow: 0 0 10px 0 var(--text-black-900);
 }
+
 .main button{
-    
     background-color: var(--bg-black-900);
     border: none;
     color: var(--text-black-900);

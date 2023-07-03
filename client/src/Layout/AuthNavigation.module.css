@@ -8,9 +8,10 @@
     z-index: 10;
     position: sticky;
     top: 0;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
-        0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+        0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
+
 .main .logo{
     margin-right: 1%;
 }
@@ -18,7 +19,7 @@
 .main .logo img{
     width: 5rem;
     height: 4rem;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235), 0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%), 0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
 .main a{
@@ -39,7 +40,7 @@
 .main a:hover{
     background-color: var(--bg-black-50);
     color: var(--text-black-900);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.235),
-            0 0 10px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 10px 1px rgb(0 0 0 / 23.5%),
+            0 0 10px 1px rgb(255 255 255 / 53.5%);
 }
 

@@ -16,7 +16,7 @@
     margin: 1rem 0;
     background-color: var(--bg-black-100);
     border-radius: 1rem;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2), 0 0 5px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%), 0 0 5px 1px rgb(255 255 255 / 50%);
     width: 40%;
 }
 
@@ -48,10 +48,9 @@
 
 .userList {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 1rem;
     width: 80%;
     height: 100%;
@@ -72,13 +71,14 @@
     width: 15rem;
     height: 25rem;
     cursor: pointer;
+
     /* border-radius: 10rem; */
     transition: all 0.3s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 4px 8px 0 rgb(255 255 255 / 20%);
 }
 
 .ind_card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 8px 16px 0 rgb(255 255 255 / 20%);
     transform: scale(1.03);
 }
 

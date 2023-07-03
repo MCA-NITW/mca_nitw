@@ -8,8 +8,8 @@
     z-index: 10;
     position: sticky;
     top: 0;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
-        0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+        0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
 .main_nav .nav_logo {
@@ -20,7 +20,7 @@
 .main_nav .nav_logo img {
     width: 5rem;
     height: 4rem;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235), 0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%), 0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
 .main_nav .nav_links {
@@ -43,8 +43,8 @@
 .main_nav .nav_links a.active {
     color: var(--text-black-900);
     background-color: var(--bg-black-50);
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
-        0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+        0 0 5px 1px rgb(255 255 255 / 53.5%);
     border-radius: 10px;
     transform: scale(1.05);
 }
@@ -58,8 +58,8 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.235),
-            0 0 10px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 10px 1px rgb(0 0 0 / 23.5%),
+            0 0 10px 1px rgb(255 255 255 / 53.5%);
 }
 
 .btn:hover{
@@ -78,6 +78,6 @@
     transform: none;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (width <= 768px){
     
 }
