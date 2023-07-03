@@ -1,9 +1,4 @@
 {
-  "scripts": {
-    "dev": "concurrently \"cd server && nodemon index.js\"  \"cd client && npm start\"",
-    "test": "jest"
-  },
-  "version": "1.0.0",
   "dependencies": {
     "concurrently": "^8.2.0",
     "eslint": "^8.44.0",
@@ -19,5 +14,10 @@
   },
   "devDependencies": {
     "jest": "^29.5.0"
-  }
+  },
+  "scripts": {
+    "dev": "concurrently \"cd server && nodemon index.js\"  \"cd client && npm start\"",
+    "test": "jest"
+  },
+  "version": "1.0.0"
 }
