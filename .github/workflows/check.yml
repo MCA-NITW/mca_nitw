@@ -28,5 +28,5 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: |
-          yarn install prettier
+          yarn install
           yarn prettier --write .
