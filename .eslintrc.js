@@ -1,3 +1,5 @@
+const { inc } = require("semver");
+
 module.exports = {
   env: {
     browser: true,
@@ -15,5 +17,12 @@ module.exports = {
     'react'
   ],
   rules: {
-  }
+  },
+  includes: [
+    "*.js",
+    "*.jsx"
+  ],
+  excludes: [
+    "node_modules"
+  ]
 }

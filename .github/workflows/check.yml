@@ -37,20 +37,11 @@ jobs:
         run: |
           yarn install
 
-      # Check for changes with ESLint
-      - name: Analyzing the code with ESLint
+      # Check for changes with ESLint and Stylelint
+      - name: Analyzing the code with ESLint and Stylelint
         run: |
-          yarn eslint --fix **/*.js **/*.jsx
-
-      # Check for changes with Stylelint
-      - name: Analyzing the code with Stylelint
-        run: |
-          if find . -iname '**/*.css' | grep -q .; then
-            yarn stylelint --fix **/*.css
-          else
-            echo "No CSS files found"
-          fi
-          
+          yarn eslint --fix .
+          yarn stylelint --fix .
 
       # Check for changes with Prettier
       - name: Check for changes with Prettier
