@@ -51,10 +51,8 @@ function App() {
     <div>
       <Mode />
       <RouterProvider router={Router} />
-      <Footer/>
-      
+      <Footer />
     </div>
-    
   );
 }
 

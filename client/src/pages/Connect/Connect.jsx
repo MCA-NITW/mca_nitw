@@ -3,7 +3,7 @@ import UserList from "./UserList";
 import { fallback } from "../../Layout/fallback";
 import { Await, useLoaderData } from "react-router-dom";
 import { defer } from "react-router-dom";
-import {BiSearch} from 'react-icons/bi'
+import { BiSearch } from "react-icons/bi";
 
 import classes from "./Connect.module.css";
 
@@ -13,14 +13,14 @@ const Connect = () => {
   return (
     <div className={classes.connect_main}>
       <div className={classes.search}>
-        <input placeholder="Search..." className={classes.search_input}/>
+        <input placeholder="Search..." className={classes.search_input} />
         <button className={classes.search_btn}>
-          <BiSearch/>
+          <BiSearch />
         </button>
       </div>
       <Suspense fallback={fallback}>
         <Await resolve={allUsers}>
-          {(allUsers) => <UserList allUsers={allUsers} />}
+          {allUsers => <UserList allUsers={allUsers} />}
         </Await>
       </Suspense>
     </div>

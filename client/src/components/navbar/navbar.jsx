@@ -47,7 +47,6 @@ const Nav = () => {
           >
             Connect
           </NavLink>
-          
         </div>
         <div className={classes.nav_btns}>
           <Link to="/auth?mode=login">

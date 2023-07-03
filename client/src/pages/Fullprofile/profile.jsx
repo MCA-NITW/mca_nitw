@@ -1,67 +1,83 @@
-import React from 'react'
-import classes from './profile.module.css'
+import React from "react";
+import classes from "./profile.module.css";
 
-const skills = ["HTML","CSS","JavaScript","React","Node","Express","MongoDB","Python","Django","C++","C","Java","PHP","MySQL","Git","GitHub","Linux",]
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Node",
+  "Express",
+  "MongoDB",
+  "Python",
+  "Django",
+  "C++",
+  "C",
+  "Java",
+  "PHP",
+  "MySQL",
+  "Git",
+  "GitHub",
+  "Linux",
+];
 
 const experience = [
-    {
-        title: "Web Developer",
-        company: "XYZ Company",
-        location: "India",
-        from: "2020",
-        to: "Present"
-    }
-]
+  {
+    title: "Web Developer",
+    company: "XYZ Company",
+    location: "India",
+    from: "2020",
+    to: "Present",
+  },
+];
 
 const education = [
-    {
-        title: "B.Tech",
-        company: "ABC College",
-        location: "India",
-        from: "2016",
-        to: "2020"
-    }
-]
+  {
+    title: "B.Tech",
+    company: "ABC College",
+    location: "India",
+    from: "2016",
+    to: "2020",
+  },
+];
 
 const social = [
-    {
-        title: "Facebook",
-        link: "https://www.facebook.com"
-    },
-    {
-        title: "Twitter",
-        link: "https://www.twitter.com"
-    },
-    {
-        title: "Instagram",
-        link: "https://www.instagram.com"
-    },
-    {
-        title: "LinkedIn",
-        link: "https://www.linkedin.com"
-    }
-]
+  {
+    title: "Facebook",
+    link: "https://www.facebook.com",
+  },
+  {
+    title: "Twitter",
+    link: "https://www.twitter.com",
+  },
+  {
+    title: "Instagram",
+    link: "https://www.instagram.com",
+  },
+  {
+    title: "LinkedIn",
+    link: "https://www.linkedin.com",
+  },
+];
 
 const codingprofiles = [
-    {
-        title: "CodeChef",
-        link: "https://www.codechef.com"
-    },
-    {
-        title: "CodeForces",
-        link: "https://www.codeforces.com"
-    },
-    {
-        title: "HackerRank",
-        link: "https://www.hackerrank.com"
-    },
-    {
-        title: "HackerEarth",
-        link: "https://www.hackerearth.com"
-    }
-]
-
-
+  {
+    title: "CodeChef",
+    link: "https://www.codechef.com",
+  },
+  {
+    title: "CodeForces",
+    link: "https://www.codeforces.com",
+  },
+  {
+    title: "HackerRank",
+    link: "https://www.hackerrank.com",
+  },
+  {
+    title: "HackerEarth",
+    link: "https://www.hackerearth.com",
+  },
+];
 
 const profile = () => {
   return (
@@ -284,6 +300,6 @@ const profile = () => {
       </div>
     </div>
   );
-}
+};
 
-export default profile
+export default profile;

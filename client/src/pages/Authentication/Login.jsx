@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Authentication.module.css";
-import {FaFacebookF, FaGoogle , FaGithub ,FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const Login = () => {
   return (

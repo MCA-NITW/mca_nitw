@@ -1,142 +1,141 @@
 .connect_main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 37.5rem;
-    background-color: var(--bg-black-900);
-    color: var(--text-black-900);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 37.5rem;
+  background-color: var(--bg-black-900);
+  color: var(--text-black-900);
 }
 
 .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0;
-    background-color: var(--bg-black-100);
-    border-radius: 1rem;
-    box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%), 0 0 5px 1px rgb(255 255 255 / 50%);
-    width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  background-color: var(--bg-black-100);
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%), 0 0 5px 1px rgb(255 255 255 / 50%);
+  width: 40%;
 }
 
-.search .search_input{
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    color: var(--text-black-900);
+.search .search_input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: var(--text-black-900);
 }
 
-.search button{
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    color: var(--text-black-900);
+.search button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: var(--text-black-900);
 }
 
-.search button:hover{
-    background-color: var(--bg-black-50);
-    border-radius: 1rem;
+.search button:hover {
+  background-color: var(--bg-black-50);
+  border-radius: 1rem;
 }
 
 .userList {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 80%;
-    height: 100%;
-    background-color: var(--bg-black-900);
-    padding-top: 2rem;
-    color: var(--text-black-900);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 80%;
+  height: 100%;
+  background-color: var(--bg-black-900);
+  padding-top: 2rem;
+  color: var(--text-black-900);
 }
 
-
 .ind_card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    color: var(--text-black-700);
-    background-color: var(--bg-black-50);
-    width: 15rem;
-    height: 25rem;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  color: var(--text-black-700);
+  background-color: var(--bg-black-50);
+  width: 15rem;
+  height: 25rem;
+  cursor: pointer;
 
-    /* border-radius: 10rem; */
-    transition: all 0.3s;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 4px 8px 0 rgb(255 255 255 / 20%);
+  /* border-radius: 10rem; */
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 4px 8px 0 rgb(255 255 255 / 20%);
 }
 
 .ind_card:hover {
-    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 8px 16px 0 rgb(255 255 255 / 20%);
-    transform: scale(1.03);
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 8px 16px 0 rgb(255 255 255 / 20%);
+  transform: scale(1.03);
 }
 
 .ind_card img {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
 }
 
-.ind_component{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    color: var(--text-black-700);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    cursor: pointer;
-    padding: 1rem;
+.ind_component {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: var(--text-black-700);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  padding: 1rem;
 }
 
-.ind_username{
-    font-size: 1.2rem;
-    font-weight: 600;
+.ind_username {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.ind_institute{
-    font-size: 1rem;
-    font-weight: 400;
+.ind_institute {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-.ind_batch{
-    font-size: 1rem;
-    font-weight: 400;
+.ind_batch {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-.ind_links{
-    width: 100%;
-    margin-top: -1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 1rem;
+.ind_links {
+  width: 100%;
+  margin-top: -1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
-.ind_links .btn{
-    background-color: var(--bg-black-50);
-    color: blue;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: all 0.3s;
+.ind_links .btn {
+  background-color: var(--bg-black-50);
+  color: blue;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
-.ind_links .btn:hover{
-    transform: scale(1.1);
-    text-decoration: underline;
+.ind_links .btn:hover {
+  transform: scale(1.1);
+  text-decoration: underline;
 }

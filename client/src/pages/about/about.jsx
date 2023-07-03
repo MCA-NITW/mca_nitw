@@ -1,11 +1,8 @@
-import React from 'react'
-import classes from './about.module.css'
+import React from "react";
+import classes from "./about.module.css";
 
 const about = () => {
-  return (
-    <div className={classes.main}>
-    </div>
-  )
-}
+  return <div className={classes.main}></div>;
+};
 
-export default about
+export default about;

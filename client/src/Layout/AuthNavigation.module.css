@@ -1,46 +1,46 @@
-.main{
-    background-color: var(--bg-black-100);
-    height: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 1rem;
-    z-index: 10;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
-        0 0 5px 1px rgb(255 255 255 / 53.5%);
+.main {
+  background-color: var(--bg-black-100);
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+    0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
-.main .logo{
-    margin-right: 1%;
+.main .logo {
+  margin-right: 1%;
 }
 
-.main .logo img{
-    width: 5rem;
-    height: 4rem;
-    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%), 0 0 5px 1px rgb(255 255 255 / 53.5%);
+.main .logo img {
+  width: 5rem;
+  height: 4rem;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+    0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
-.main a{
-    font-size: 1.1rem;
-    letter-spacing: 0.15rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--text-black-900);
-    color: var(--bg-black-100);
-    text-decoration: none;
-    padding: 0.5rem 0.8rem;
-    transition: all 0.3s ease;
-    gap: 0.3rem;
-    border-radius: 10px;
+.main a {
+  font-size: 1.1rem;
+  letter-spacing: 0.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-black-900);
+  color: var(--bg-black-100);
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  transition: all 0.3s ease;
+  gap: 0.3rem;
+  border-radius: 10px;
 }
 
-.main a:hover{
-    background-color: var(--bg-black-50);
-    color: var(--text-black-900);
-    box-shadow: 0 0 10px 1px rgb(0 0 0 / 23.5%),
-            0 0 10px 1px rgb(255 255 255 / 53.5%);
+.main a:hover {
+  background-color: var(--bg-black-50);
+  color: var(--text-black-900);
+  box-shadow: 0 0 10px 1px rgb(0 0 0 / 23.5%),
+    0 0 10px 1px rgb(255 255 255 / 53.5%);
 }
-

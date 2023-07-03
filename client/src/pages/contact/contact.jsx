@@ -1,6 +1,6 @@
-import React from 'react'
-import './contact.css'
-import Card from './Card/card';
+import React from "react";
+import "./contact.css";
+import Card from "./Card/card";
 
 const data = [
   {
@@ -61,7 +61,7 @@ const contact = () => {
         <div className="contact__top">
           <h1>Contact the Team</h1>
           <div className="card">
-            {data.map((item) => {
+            {data.map(item => {
               return <Card data={item} />;
             })}
           </div>
@@ -69,6 +69,6 @@ const contact = () => {
       </div>
     </div>
   );
-}
+};
 
-export default contact
+export default contact;
