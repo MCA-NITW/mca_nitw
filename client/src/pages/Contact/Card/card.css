@@ -10,8 +10,8 @@
     background-color: var(--bg-black-50);
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
-        0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+        0 0 5px 1px rgb(255 255 255 / 53.5%);
     transition: all 0.3s ease-in-out;
 }
 
@@ -92,7 +92,7 @@
     align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
     .card_item{
         margin: 30px;
     }

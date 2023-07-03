@@ -5,8 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     gap: 20px;
     width: 100%;
 }
@@ -22,8 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-flow: column wrap;
 }
 
 .contact__top .card{
@@ -36,8 +34,8 @@
     flex-direction: row;
     margin: 20px 0;
     border-radius: 20px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
-        0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+        0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
 .contact__bottom{
@@ -52,8 +50,8 @@
     background-color: var(--bg-black-100);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.235),
-        0 0 5px 1px rgba(255, 255, 255, 0.535);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+        0 0 5px 1px rgb(255 255 255 / 53.5%);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -82,7 +80,6 @@
     margin: 10px 0;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 0 10px var(--bg-black-50);
     background-color: var(--text-black-900);
     color: var(--bg-black-900);
     box-shadow: 0 0 10px var(--bg-black-50);
@@ -104,23 +101,27 @@
     outline: none;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (width <= 768px){
     .contact{
         padding: 50px 0;
     }
+
     .contact__top{
         width: 100%;
         flex-direction: row;
         justify-content: space-around;
     }
+
     .contact__bottom{
         width: 100%;
         flex-direction: column;
         justify-content: space-around;
     }
+
     .contact__bottom form{
         width: 90%;
     }
+
     .contact__top .card{
         width: 90%;
         flex-direction: column;

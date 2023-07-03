@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
 }
+
 :root {
   --bg-black-900: #f2f2fc;
   --bg-black-100: #fdf9ff;
@@ -13,10 +14,10 @@
 
 body.dark {
   --bg-black-900: #151515;
-  --bg-black-100: #222222;
+  --bg-black-100: #222;
   --bg-black-50: #393939;
   --text-black-700: #e9e9e9;
-  --text-black-900: #ffffff;
+  --text-black-900: #fff;
 }
 
 body {
