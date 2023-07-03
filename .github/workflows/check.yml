@@ -36,7 +36,6 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
-          yarn add stylelint eslint prettier eslint-config-standard stylelint-config-standard gh
 
       # Check for changes with ESLint
       - name: Analyzing the code with ESLint
