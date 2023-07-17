@@ -1,5 +1,16 @@
 {
+  "scripts": {
+    "frontend-install": "cd client && npm install",
+    "backend-install": "cd server && npm install",
+    "frontend-start": "cd client && npm run start",
+    "backend-start": "cd server && npm run start",
+    "set-env": "concurrently \"npm install\" \"npm run frontend-install\" \"npm run backend-install\"",
+    "dev": "concurrently \"npm run frontend-start\"  \"npm run backend-start\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "concurrently": "^8.2.0",
     "prettier": "^3.0.0"
   }
 }

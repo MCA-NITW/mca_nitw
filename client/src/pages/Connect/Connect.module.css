@@ -16,7 +16,9 @@
   margin: 1rem 0;
   background-color: var(--bg-black-100);
   border-radius: 1rem;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 20%), 0 0 5px 1px rgb(255 255 255 / 50%);
+  box-shadow:
+    0 0 5px 1px rgb(0 0 0 / 20%),
+    0 0 5px 1px rgb(255 255 255 / 50%);
   width: 40%;
 }
 
@@ -73,11 +75,15 @@
 
   /* border-radius: 10rem; */
   transition: all 0.3s;
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 4px 8px 0 rgb(255 255 255 / 20%);
+  box-shadow:
+    0 4px 8px 0 rgb(0 0 0 / 20%),
+    0 4px 8px 0 rgb(255 255 255 / 20%);
 }
 
 .ind_card:hover {
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 8px 16px 0 rgb(255 255 255 / 20%);
+  box-shadow:
+    0 8px 16px 0 rgb(0 0 0 / 20%),
+    0 8px 16px 0 rgb(255 255 255 / 20%);
   transform: scale(1.03);
 }
 
