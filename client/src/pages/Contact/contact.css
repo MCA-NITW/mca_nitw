@@ -34,7 +34,8 @@
   flex-direction: row;
   margin: 20px 0;
   border-radius: 20px;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+  box-shadow:
+    0 0 5px 1px rgb(0 0 0 / 23.5%),
     0 0 5px 1px rgb(255 255 255 / 53.5%);
 }
 
@@ -50,7 +51,8 @@
   background-color: var(--bg-black-100);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+  box-shadow:
+    0 0 5px 1px rgb(0 0 0 / 23.5%),
     0 0 5px 1px rgb(255 255 255 / 53.5%);
   width: 100%;
   display: flex;

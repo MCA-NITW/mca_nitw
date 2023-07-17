@@ -5,6 +5,7 @@ This repository contains the code for the organization project built using the M
 ## File Structure
 
 The project follows a specific file structure to organize the codebase effectively. Here's an overview of the file structure:
+
 ```bash
 ├── server
 │   ├── __tests__              # Contains test files for server-side code
@@ -23,7 +24,6 @@ The project follows a specific file structure to organize the codebase effective
         └── utils               # Utility functions for the frontend
 
 ```
-
 
 ### Server Folder
 
@@ -56,4 +56,3 @@ The `client` folder contains the frontend code for the project, built using Reac
   - `styles`: CSS or styling files are located in the `styles` folder. These files define the visual appearance of the application components.
 
   - `utils`: Utility functions that are specific to the frontend are stored in the `utils` folder. These functions provide common functionalities that are not tied to a specific component.
-

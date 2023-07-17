@@ -10,7 +10,8 @@
   background-color: var(--bg-black-50);
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 0 5px 1px rgb(0 0 0 / 23.5%),
+  box-shadow:
+    0 0 5px 1px rgb(0 0 0 / 23.5%),
     0 0 5px 1px rgb(255 255 255 / 53.5%);
   transition: all 0.3s ease-in-out;
 }
