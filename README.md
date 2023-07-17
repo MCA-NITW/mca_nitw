@@ -56,3 +56,73 @@ The `client` folder contains the frontend code for the project, built using Reac
   - `styles`: CSS or styling files are located in the `styles` folder. These files define the visual appearance of the application components.
 
   - `utils`: Utility functions that are specific to the frontend are stored in the `utils` folder. These functions provide common functionalities that are not tied to a specific component.
+
+## Installation
+
+To get started, follow these instructions to install the necessary dependencies.
+
+### Prerequisites
+
+Make sure you have the following software installed on your system:
+
+- Node.js (version 20.0.0 +)
+- npm (version 9.8.0 + )
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/MCA-NITW/mca_nitw.git
+   ```
+
+2. Change into the project directory:
+
+   ```bash
+   cd project-name
+   ```
+
+3. Install project dependencies:
+
+   ```bash
+   npm install
+   npm run set-env
+   ```
+
+   This command will install the necessary dependencies for both the frontend and backend.
+
+4. Start the development server: 
+  
+   I. For frontend and backend both
+   ```bash
+   npm run dev
+   ```
+   This command will start the development server for both the frontend and backend.
+
+   II. For backend only
+   ```bash
+   npm backend-start
+   ```
+    This command will start the development server for backend.
+
+   III. For backend only
+   ```bash
+    npm frontend-start
+    ```
+      This command will start the development server for frontend.
+
+5. Open the application in your browser:
+
+   ```bash
+   http://localhost:3000
+   ```
+
+   The application should now be running in your browser.
+
+## Contributing
+
+Contributions are welcome! Please refer to the [contributing guidelines](CONTRIBUTING.md) for detailed instructions.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
