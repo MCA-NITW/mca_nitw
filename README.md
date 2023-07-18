@@ -70,19 +70,53 @@ Make sure you have the following software installed on your system:
 
 ### Steps
 
-1. Clone the repository:
+1. Creating your branch:
 
-   ```bash
-   git clone https://github.com/MCA-NITW/mca_nitw.git
-   ```
+    I. For Organization Members:
+    
+      - **Branch Creation:**
+          As an organization member, when working on a new feature or task, you should create a new branch from the "develop" branch. The branch name should be in the format `feature-` where `<description>` represents a short description of the task or feature you are working on. For example, if you are adding a login feature, the branch name could be `feature-login`.
+          
+      - **Code Implementation:**
+          Implement the necessary changes and new features on your created branch. Make sure to adhere to the organization's coding standards and best practices.
+          
+      - **Code Testing:**
+          Thoroughly test your changes on the branch to ensure that they work as expected and do not introduce any bugs or issues.
+          
+      - **Code Review:**
+          If required by the organization's development process, request a code review from your peers to ensure code quality and adherence to project guidelines.
+          
+      - **Pull Request Creation:**
+          Once you are confident that your code is complete and tested, create a pull request to merge your changes from the `feature-*` branch into the `develop` branch. Clearly explain the purpose and scope of the changes in the pull request description.
+    
+    II. For Outside Collaborators:
+    
+      - **Clone the Repository:**
+          As an outside collaborator, you first need to clone the repository containing the project. This will give you a local copy of the codebase to work with.
+          
+      - **Create a New Branch:**
+          After cloning, create a new branch from the `develop` branch to work on your specific task or feature. The branch name should also follow the format `feature-` where `<description>` describes the purpose of your changes.
+          
+      - **Implement Changes:**
+          Proceed with implementing the necessary code changes or new features on your branch. Ensure your modifications align with the project's guidelines and meet the intended functionality.
+          
+      - **Test Your Changes:**
+          Thoroughly test the code changes you made to verify that they work as expected and do not introduce any errors.
+          
+      - **Create a Pull Request:**
+          Once your changes are ready, create a pull request to propose merging your branch into the `develop` branch. Provide a clear and detailed explanation of the changes you made, the reasoning behind them, and any relevant context that might help with the review process.
+          
+      - **Address Feedback:**
+          Be responsive to any feedback or comments provided during the pull request review. Make necessary adjustments and improvements based on the feedback before your changes can be merged into the main project.
 
-2. Change into the project directory:
+
+3. Change into the project directory:
 
    ```bash
    cd mca_nitw
    ```
 
-3. Install project dependencies:
+4. Install project dependencies:
 
    ```bash
    npm install
@@ -91,7 +125,7 @@ Make sure you have the following software installed on your system:
 
    This command will install the necessary dependencies for both the frontend and backend.
 
-4. Start the development server: 
+5. Start the development server: 
   
    I. For frontend and backend both
    ```bash
@@ -111,7 +145,7 @@ Make sure you have the following software installed on your system:
     ```
       This command will start the development server for frontend.
 
-5. Open the application in your browser:
+6. Open the application in your browser:
 
    ```bash
    http://localhost:3000
