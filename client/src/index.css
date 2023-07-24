@@ -5,19 +5,21 @@
 }
 
 :root {
-  --bg-black-900: #f2f2fc;
-  --bg-black-100: #fdf9ff;
-  --bg-black-50: #e8dfec;
-  --text-black-700: #504e70;
-  --text-black-900: #212031;
+  --bg-black-900: #EDEDED;
+  --bg-black-100: #DBDBDB;
+  --bg-black-50: #B7B7B7;
+  --text-black-700: #242424;
+  --text-black-900: #121212;
+  --shadow-box: 0 0 2px 2px rgba(128, 128, 128, 0.5);
+  --radius: 5px;
 }
 
 body.dark {
-  --bg-black-900: #151515;
-  --bg-black-100: #222;
-  --bg-black-50: #393939;
-  --text-black-700: #e9e9e9;
-  --text-black-900: #fff;
+  --bg-black-900: #121212;
+  --bg-black-100: #242424;
+  --bg-black-50: #484848;
+  --text-black-700: #DBDBDB;
+  --text-black-900: #EDEDED;
 }
 
 body {
