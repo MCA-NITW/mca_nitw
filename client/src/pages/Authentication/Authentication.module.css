@@ -11,10 +11,8 @@
 .card {
   margin-top: 2rem;
   background-color: var(--bg-black-100);
-  border-radius: 10px;
-  box-shadow:
-    0 0 10px 1px rgb(0 0 0 / 23.5%),
-    0 0 10px 1px rgb(255 255 255 / 53.5%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-box);
   padding: 2rem;
   width: 30rem;
   display: flex;
@@ -51,15 +49,13 @@
 .formGroup input {
   width: 100%;
   padding: 0.5rem 1rem;
-  border-radius: 3rem;
+  border-radius: var(--radius);
   background-color: var(--bg-black-200);
   color: var(--text-white-100);
   font-size: 1rem;
   font-weight: 500;
   outline: none;
-  box-shadow:
-    0 0 4px 1px rgb(0 0 0 / 23.5%),
-    0 0 4px 1px rgb(255 255 255 / 53.5%);
+  box-shadow: var(--shadow-box);
   border: 1px solid transparent;
 }
 
@@ -95,15 +91,13 @@
   background-color: var(--text-black-900);
   color: var(--bg-black-900);
   border: none;
-  border-radius: 3rem;
+  border-radius: var(--radius);
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   width: 100%;
   padding: 0.5rem 1rem;
-  box-shadow:
-    0 0 4px 1px rgb(0 0 0 / 23.5%),
-    0 0 4px 1px rgb(255 255 255 / 53.5%);
+  box-shadow: var(--shadow-box);
   transition: all 0.2s ease-in-out;
 }
 
@@ -182,17 +176,14 @@
   font-weight: 600;
   cursor: pointer;
   align-items: center;
-  box-shadow:
-    0 0 4px 1px rgb(0 0 0 / 23.5%),
-    0 0 4px 1px rgb(255 255 255 / 53.5%);
+  box-shadow: var(--shadow-box);
   transition: all 0.2s ease-in-out;
+  border-radius: var(--radius);
 }
 
 .loginwithicon:hover {
   color: var(--bg-black-900);
   background-color: var(--text-black-900);
-  box-shadow:
-    0 0 7px 1px rgb(0 0 0 / 23.5%),
-    0 0 7px 1px rgb(255 255 255 / 53.5%);
+  box-shadow: var(--shadow-box);
   transform: scale(1.1);
 }

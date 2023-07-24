@@ -6,8 +6,8 @@
   margin-top: 5rem;
   z-index: 100;
   overflow: overlay;
-  border-radius: 0 50% 50% 0;
-  box-shadow: 0 0 10px 0 var(--text-black-900);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-box);
 }
 
 .main button {
