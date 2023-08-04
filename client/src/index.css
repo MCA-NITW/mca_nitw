@@ -5,9 +5,9 @@
 }
 
 :root {
-  --bg-black-900: #EDEDED;
-  --bg-black-100: #DBDBDB;
-  --bg-black-50: #B7B7B7;
+  --bg-black-900: #ededed;
+  --bg-black-100: #dbdbdb;
+  --bg-black-50: #b7b7b7;
   --text-black-700: #242424;
   --text-black-900: #121212;
   --shadow-box: 0 0 2px 2px rgba(128, 128, 128, 0.5);
@@ -18,8 +18,8 @@ body.dark {
   --bg-black-900: #121212;
   --bg-black-100: #242424;
   --bg-black-50: #484848;
-  --text-black-700: #DBDBDB;
-  --text-black-900: #EDEDED;
+  --text-black-700: #dbdbdb;
+  --text-black-900: #ededed;
 }
 
 body {
