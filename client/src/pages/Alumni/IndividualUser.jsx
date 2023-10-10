@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Connect.module.css";
+import classes from "./Alumni.module.css";
 import { Link } from "react-router-dom";
 import Profile from "../Fullprofile/profile";
 

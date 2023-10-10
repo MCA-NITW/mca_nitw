@@ -5,13 +5,13 @@ import { Await, useLoaderData } from "react-router-dom";
 import { defer } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 
-import classes from "./Connect.module.css";
+import classes from "./Alumni.module.css";
 
-const Connect = () => {
+const Alumni = () => {
   const data = useLoaderData();
   const allUsers = data.users;
   return (
-    <div className={classes.connect_main}>
+    <section className={classes.Alumni_main}>
       <div className={classes.search}>
         <input placeholder="Search..." className={classes.search_input} />
         <button className={classes.search_btn}>
@@ -23,16 +23,31 @@ const Connect = () => {
           {allUsers => <UserList allUsers={allUsers} />}
         </Await>
       </Suspense>
-    </div>
+    </section>
   );
 };
 
-export default Connect;
+export default Alumni;
 
 const userLoader = async () => {
-  const res = await fetch("http://localhost:9000/users/all");
-  const resData = await res.json();
-  return resData.users;
+  return [
+    {
+      key: 1,
+      id: 1,
+      name: "Sagar Gupta",
+      Institute: "NIT Warangal",
+      Batch: "2021-2024",
+    },
+  ];
+
+  // try{
+  //   const res = await fetch("http://localhost:9000/users/all");
+  //   const resData = await res.json();
+  //   return resData;
+  // }
+  // catch(err){
+  //   console.log("Unable to fetch users");
+  // }
 };
 
 export const loader = () => {

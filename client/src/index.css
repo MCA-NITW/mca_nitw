@@ -2,12 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
-  --bg-black-900: #EDEDED;
-  --bg-black-100: #DBDBDB;
-  --bg-black-50: #B7B7B7;
+  --bg-black-900: #ededed;
+  --bg-black-100: #dbdbdb;
+  --bg-black-50: #b7b7b7;
   --text-black-700: #242424;
   --text-black-900: #121212;
   --shadow-box: 0 0 2px 2px rgba(128, 128, 128, 0.5);
@@ -18,13 +19,24 @@ body.dark {
   --bg-black-900: #121212;
   --bg-black-100: #242424;
   --bg-black-50: #484848;
-  --text-black-700: #DBDBDB;
-  --text-black-900: #EDEDED;
+  --text-black-700: #dbdbdb;
+  --text-black-900: #ededed;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  overflow: overlay;
+.main-body {
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-black-900);
+}
+
+.main-body section {
+  margin-top: 1rem;
+  margin-left: 17rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-black-100);
+  box-shadow: var(--shadow-box);
+  border-radius: var(--radius);
+  width: 100%-17rem;
 }

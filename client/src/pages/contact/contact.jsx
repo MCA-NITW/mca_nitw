@@ -4,6 +4,7 @@ import Card from "./Card/card";
 
 const data = [
   {
+    id: 1,
     image: "https://avatars.githubusercontent.com/u/92421383?v=4",
     name: "Sagar Gupta",
     role: "Full Stack Developer",
@@ -14,6 +15,7 @@ const data = [
     instagram: "https://www.instagram.com/sagar_sethh/",
   },
   {
+    id: 2,
     image: "https://avatars.githubusercontent.com/u/97335790?v=4",
     name: "Sachin Gupta",
     role: "Full Stack Developer",
@@ -46,28 +48,26 @@ function abc(e) {
 
 const contact = () => {
   return (
-    <div>
-      <div className="contact">
-        <div className="contact__bottom">
-          <h1>Get in Touch</h1>
-          <form onSubmit={abc}>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="text" placeholder="Subject" />
-            <textarea placeholder="Message" />
-            <button type="submit">Send</button>
-          </form>
-        </div>
-        <div className="contact__top">
-          <h1>Contact the Team</h1>
-          <div className="card">
-            {data.map(item => {
-              return <Card data={item} />;
-            })}
-          </div>
+    <section className="contact">
+      <div className="contact__bottom">
+        <h1>Get in Touch</h1>
+        <form onSubmit={abc}>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder="Message" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <div className="contact__top">
+        <h1>Contact the Team</h1>
+        <div className="card">
+          {data.map(item => {
+            return <Card data={item} />;
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

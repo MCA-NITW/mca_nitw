@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import classes from "./navbar.module.css";
 
-const Nav = () => {
+const Nav = props => {
+  const NavLinks = props.navLinks;
   return (
     <>
       <nav className={classes.main_nav}>
@@ -15,38 +16,19 @@ const Nav = () => {
           </Link>
         </div>
         <div className={classes.nav_links}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            to="/connect"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
-          >
-            Connect
-          </NavLink>
+          {NavLinks.map(link => {
+            return (
+              <NavLink
+                key={link.id}
+                to={link.to}
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                {link.name}
+              </NavLink>
+            );
+          })}
         </div>
         <div className={classes.nav_btns}>
           <Link to="/auth?mode=login">

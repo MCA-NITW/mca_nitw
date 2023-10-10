@@ -1,9 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Authentication.module.css";
 import { FaFacebookF, FaGoogle, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
-const Login = () => {
+const Login = props => {
+  const navigate = useNavigate();
+  const onSubmitHandler = () => {
+    props.setisloggedin(true);
+    navigate("/");
+  };
+
   return (
     <div className={classes.card}>
       <div className={classes.heading}>Login</div>
@@ -11,7 +17,9 @@ const Login = () => {
         <div className={classes.formGroup}>
           <input type="text" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <button type="submit">Login</button>
+          <button onClick={onSubmitHandler} type="submit">
+            Login
+          </button>
         </div>
       </div>
       <div className={classes.link}>

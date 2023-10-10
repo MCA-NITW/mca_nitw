@@ -81,7 +81,7 @@ const codingprofiles = [
 
 const profile = () => {
   return (
-    <div className={classes.profile}>
+    <section className={classes.profile}>
       <div className={classes.profile_left}>
         <div className={classes.profile_left_top}>
           <div className={classes.profile_left_top_upper}>
@@ -298,7 +298,7 @@ const profile = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,14 +5,15 @@ import Signup from "./Signup";
 import AuthNavigation from "../../Layout/AuthNavigation";
 import classes from "./Authentication.module.css";
 
-const Authentication = () => {
+const Authentication = props => {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
+
   return (
     <div>
       <AuthNavigation />
       <div className={classes.auth_container}>
-        {isLogin ? <Login /> : <Signup />}
+        {isLogin ? <Login setisloggedin={props.setisloggedin} /> : <Signup />}
       </div>
     </div>
   );

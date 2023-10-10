@@ -1,12 +1,12 @@
-.connect_main {
+.Alumni_main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-height: 37.5rem;
+  gap: 1rem;
   background-color: var(--bg-black-900);
   color: var(--text-black-900);
+  padding: 1rem;
 }
 
 .search {

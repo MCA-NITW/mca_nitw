@@ -1,11 +1,3 @@
 .main {
-  width: 100%;
-  min-height: 42.5rem;
   background-color: var(--bg-black-900);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
 }
