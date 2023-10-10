@@ -4,6 +4,7 @@ import classes from "./navbar.module.css";
 
 const Nav = props => {
   const NavLinks = props.navLinks;
+  const isloggedin = props.isloggedin;
   return (
     <>
       <nav className={classes.main_nav}>
@@ -31,9 +32,15 @@ const Nav = props => {
           })}
         </div>
         <div className={classes.nav_btns}>
-          <Link to="/auth?mode=login">
-            <button className={classes.btn}>Sign in/Sign up</button>
-          </Link>
+          {isloggedin ? (
+            <Link to="/profile">
+              <button className={classes.btn}>Profile</button>
+            </Link>
+          ) : (
+            <Link to="/auth?mode=login">
+              <button className={classes.btn}>Sign in/Sign up</button>
+            </Link>
+          )}
         </div>
       </nav>
       <Outlet />

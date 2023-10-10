@@ -20,11 +20,12 @@ import StudyMaterial from "./pages/StudyMaterial/StudyMaterial.jsx";
 function App() {
   const [mode, setMode] = React.useState("light");
   const [isloggedin, setisloggedin] = React.useState(false);
-  let [links, setLinks] = React.useState([]);
+  const [links, setLinks] = React.useState([]);
 
   React.useEffect(() => {
+    const element = document.querySelector(".main-body section");
     if (isloggedin) {
-      <SideNavBar />;
+      element.style.marginLeft = "17rem";
       setLinks([
         {
           index: true,
@@ -65,6 +66,7 @@ function App() {
         },
       ]);
     } else {
+      element.style.marginLeft = "1rem";
       setLinks([
         {
           index: true,
@@ -142,13 +144,15 @@ function App() {
       path: "/",
       element: (
         <div className="main-body">
-          <Navbar navLinks={navLinks} />
+          <Navbar navLinks={navLinks} isloggedin={isloggedin} />
           {isloggedin ? (
             <SideNavBar
               SideNavLinks={SideNavLinks}
               setisloggedin={setisloggedin}
             />
-          ) : null}
+          ) : (
+            <></>
+          )}
         </div>
       ),
       errorElement: <ErrorPage />,
