@@ -75,5 +75,6 @@
   transform: none;
 }
 
-@media screen and (width <= 768px) {
+@media screen and (max-width: 768px) {
+  /* Add responsive styles for mobile view here */
 }

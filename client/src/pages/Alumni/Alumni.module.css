@@ -70,8 +70,6 @@
   width: 15rem;
   height: 25rem;
   cursor: pointer;
-
-  /* border-radius: 10rem; */
   transition: all 0.3s;
   box-shadow: var(--shadow-box);
 }
@@ -126,7 +124,7 @@
 
 .ind_links .btn {
   background-color: var(--bg-black-50);
-  color: blue;
+  color: blue; /* Consider using a CSS variable for this color */
   border: none;
   outline: none;
   cursor: pointer;

@@ -11,6 +11,7 @@
   transition: 0.5s;
   box-shadow: var(--shadow-box);
 }
+
 .sidenavbar__logo {
   margin-top: 1rem;
   text-align: center;
@@ -35,26 +36,20 @@
 .sidenavbar__links a {
   width: 80%;
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius);
   background-color: var(--bg-black-100);
   color: var(--text-black-700);
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   box-shadow: var(--shadow-box);
   text-align: center;
   text-decoration: none;
   font-size: 1.1rem;
-  padding: 0.6rem 0.8rem;
-  transition: all 0.3s ease;
 }
 
-.sidenavbar__links a:hover {
-  background-color: var(--bg-black-50);
-}
-
+.sidenavbar__links a:hover,
 .sidenavbar__links a.active {
   background-color: var(--bg-black-50);
 }
@@ -73,7 +68,7 @@
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   border: none;
   background-color: var(--bg-black-100);
   color: var(--text-black-700);
@@ -83,13 +78,11 @@
   box-shadow: var(--shadow-box);
 }
 
-.btn:hover {
-  background-color: var(--bg-black-50);
-}
-
+.btn:hover,
 .btn.active {
   background-color: var(--bg-black-50);
 }
+
 .active {
   background-color: var(--bg-black-50);
 }

@@ -50,8 +50,8 @@
   width: 100%;
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
-  background-color: var(--bg-black-200);
-  color: var(--text-white-100);
+  background-color: var(--bg-black-200); /* Adjusted for background contrast */
+  color: var(--text-black-900); /* Adjusted for better readability */
   font-size: 1rem;
   font-weight: 500;
   outline: none;

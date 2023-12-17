@@ -11,9 +11,9 @@
 }
 
 .main button {
-  background-color: var(--bg-black-900);
+  background-color: var(--bg-black-100); /* Lighter background for button */
   border: none;
-  color: var(--text-black-900);
+  color: var(--text-black-700); /* Darker text color for better contrast */
   font-size: 1.5rem;
   padding: 0.5rem;
   cursor: pointer;
