@@ -16,11 +16,13 @@ jobs:
     name: Auto-merge bot PRs
     runs-on: ubuntu-latest
     
-    # Only run if the PR is from dependabot or renovate
+    # Only run if the PR is from dependabot, renovate, or from bot branches
     if: |
       github.actor == 'dependabot[bot]' || 
       github.actor == 'renovate[bot]' ||
-      github.actor == 'dependabot-preview[bot]'
+      github.actor == 'dependabot-preview[bot]' ||
+      startsWith(github.head_ref, 'dependabot/') ||
+      startsWith(github.head_ref, 'renovate/')
     
     steps:
       - name: Checkout repository
@@ -148,7 +150,9 @@ jobs:
       (
         github.event.pull_requests[0].user.login == 'dependabot[bot]' || 
         github.event.pull_requests[0].user.login == 'renovate[bot]' ||
-        github.event.pull_requests[0].user.login == 'dependabot-preview[bot]'
+        github.event.pull_requests[0].user.login == 'dependabot-preview[bot]' ||
+        startsWith(github.event.pull_requests[0].head.ref, 'dependabot/') ||
+        startsWith(github.event.pull_requests[0].head.ref, 'renovate/')
       )
     
     steps:
@@ -166,7 +170,9 @@ jobs:
             const botPRs = pullRequests.filter(pr => 
               pr.user.login === 'dependabot[bot]' || 
               pr.user.login === 'renovate[bot]' ||
-              pr.user.login === 'dependabot-preview[bot]'
+              pr.user.login === 'dependabot-preview[bot]' ||
+              pr.head.ref.startsWith('dependabot/') ||
+              pr.head.ref.startsWith('renovate/')
             );
             
             console.log(`Found ${botPRs.length} bot PRs`);
@@ -258,7 +264,9 @@ jobs:
             const botPRs = pullRequests.filter(pr => 
               pr.user.login === 'dependabot[bot]' || 
               pr.user.login === 'renovate[bot]' ||
-              pr.user.login === 'dependabot-preview[bot]'
+              pr.user.login === 'dependabot-preview[bot]' ||
+              pr.head.ref.startsWith('dependabot/') ||
+              pr.head.ref.startsWith('renovate/')
             );
             
             console.log(`Found ${botPRs.length} bot PRs to check`);
@@ -340,7 +348,7 @@ jobs:
                       repo: context.repo.repo,
                       pull_number: pr.number,
                       event: 'APPROVE',
-                      body: 'Auto-approving bot PR during scheduled scan'
+                      body: 'Auto-approving bot PR during manual scan'
                     });
                     console.log(`Approved PR #${pr.number}`);
                   } else {
@@ -354,7 +362,7 @@ jobs:
                     pull_number: pr.number,
                     merge_method: 'squash',
                     commit_title: `Auto-merge bot PR #${pr.number}`,
-                    commit_message: 'Automatically merged by GitHub Actions during scheduled scan'
+                    commit_message: 'Automatically merged by GitHub Actions during manual scan'
                   });
                   
                   console.log(`✅ Successfully merged PR #${pr.number}`);
