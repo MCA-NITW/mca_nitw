@@ -8,6 +8,8 @@ on:
   check_suite:
     types: [completed]
   status: {}
+  # Manual trigger to check all existing PRs
+  workflow_dispatch:
 
 jobs:
   auto-merge:
@@ -228,4 +230,154 @@ jobs:
               } else {
                 console.log(`PR #${pr.number} checks not ready (status: ${statusChecks.state}, check runs passed: ${allCheckRunsPassed})`);
               }
+            }
+
+  # Job to scan all existing bot PRs (manual trigger only)
+  scan-all-bot-prs:
+    name: Scan all existing bot PRs
+    runs-on: ubuntu-latest
+    
+    # Only run on manual trigger
+    if: github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Scan and merge all ready bot PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('Starting scan of all existing bot PRs...');
+            
+            // Get all open PRs from bots
+            const { data: pullRequests } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+            
+            const botPRs = pullRequests.filter(pr => 
+              pr.user.login === 'dependabot[bot]' || 
+              pr.user.login === 'renovate[bot]' ||
+              pr.user.login === 'dependabot-preview[bot]'
+            );
+            
+            console.log(`Found ${botPRs.length} bot PRs to check`);
+            
+            if (botPRs.length === 0) {
+              console.log('No bot PRs found to process');
+              return;
+            }
+            
+            let mergedCount = 0;
+            let skippedCount = 0;
+            
+            for (const pr of botPRs) {
+              console.log(`\n--- Checking PR #${pr.number}: ${pr.title} ---`);
+              
+              if (pr.draft) {
+                console.log(`PR #${pr.number} is a draft, skipping`);
+                skippedCount++;
+                continue;
+              }
+              
+              // Get detailed PR info to check mergeable status
+              const { data: detailedPR } = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number
+              });
+              
+              if (!detailedPR.mergeable) {
+                console.log(`PR #${pr.number} is not mergeable, skipping`);
+                skippedCount++;
+                continue;
+              }
+              
+              // Check status checks
+              const { data: statusChecks } = await github.rest.repos.getCombinedStatusForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha
+              });
+              
+              // Get check runs
+              const { data: checkRuns } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha
+              });
+              
+              console.log(`Status checks: ${statusChecks.state}`);
+              console.log(`Check runs: ${checkRuns.check_runs.length} total`);
+              
+              const allStatusChecksPassed = statusChecks.state === 'success';
+              const allCheckRunsPassed = checkRuns.check_runs.length === 0 || 
+                checkRuns.check_runs.every(run => 
+                  run.status === 'completed' && 
+                  (run.conclusion === 'success' || run.conclusion === 'neutral' || run.conclusion === 'skipped')
+                );
+              
+              console.log(`Status checks passed: ${allStatusChecksPassed}`);
+              console.log(`Check runs passed: ${allCheckRunsPassed}`);
+              
+              if (allStatusChecksPassed && allCheckRunsPassed) {
+                console.log(`PR #${pr.number} is ready to merge!`);
+                
+                try {
+                  // Check if PR already has approving reviews
+                  const { data: reviews } = await github.rest.pulls.listReviews({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: pr.number
+                  });
+                  
+                  const hasApproval = reviews.some(review => review.state === 'APPROVED');
+                  
+                  if (!hasApproval) {
+                    // Approve the PR
+                    await github.rest.pulls.createReview({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      pull_number: pr.number,
+                      event: 'APPROVE',
+                      body: 'Auto-approving bot PR during scheduled scan'
+                    });
+                    console.log(`Approved PR #${pr.number}`);
+                  } else {
+                    console.log(`PR #${pr.number} already has approval`);
+                  }
+                  
+                  // Merge the PR
+                  const mergeResult = await github.rest.pulls.merge({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: pr.number,
+                    merge_method: 'squash',
+                    commit_title: `Auto-merge bot PR #${pr.number}`,
+                    commit_message: 'Automatically merged by GitHub Actions during scheduled scan'
+                  });
+                  
+                  console.log(`✅ Successfully merged PR #${pr.number}`);
+                  mergedCount++;
+                  
+                } catch (error) {
+                  console.log(`❌ Error processing PR #${pr.number}:`, error.message);
+                  skippedCount++;
+                }
+              } else {
+                console.log(`PR #${pr.number} is not ready yet`);
+                skippedCount++;
+              }
+              
+              // Add a small delay to avoid rate limiting
+              await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            console.log(`\n=== Summary ===`);
+            console.log(`Total bot PRs found: ${botPRs.length}`);
+            console.log(`Successfully merged: ${mergedCount}`);
+            console.log(`Skipped (not ready): ${skippedCount}`);
+            
+            if (mergedCount > 0) {
+              console.log(`🎉 Merged ${mergedCount} bot PR(s) successfully!`);
             }
