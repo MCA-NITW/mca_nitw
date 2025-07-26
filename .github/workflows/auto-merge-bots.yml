@@ -1,0 +1,271 @@
+name: Auto-merge bot PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  pull_request_review:
+    types: [submitted]
+  # Manual trigger to check all existing PRs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+  actions: write
+
+jobs:
+  auto-merge:
+    name: Auto-merge bot PRs
+    runs-on: ubuntu-latest
+    
+    # Only run if the PR is from dependabot, renovate, or from bot branches
+    if: |
+      github.actor == 'dependabot[bot]' || 
+      github.actor == 'renovate[bot]' ||
+      github.actor == 'dependabot-preview[bot]' ||
+      startsWith(github.head_ref, 'dependabot/') ||
+      startsWith(github.head_ref, 'renovate/')
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Check PR status
+        id: pr-status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pullRequest } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            console.log('PR State:', pullRequest.state);
+            console.log('PR Mergeable:', pullRequest.mergeable);
+            console.log('PR Draft:', pullRequest.draft);
+            
+            // Check if PR is ready to merge
+            if (pullRequest.state !== 'open' || pullRequest.draft) {
+              core.setOutput('ready', 'false');
+              return;
+            }
+            
+            // Get all status checks
+            const { data: statusChecks } = await github.rest.repos.getCombinedStatusForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: pullRequest.head.sha
+            });
+            
+            console.log('Status checks state:', statusChecks.state);
+            
+            // Get check runs
+            const { data: checkRuns } = await github.rest.checks.listForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: pullRequest.head.sha
+            });
+            
+            console.log('Check runs:', checkRuns.check_runs.map(run => ({ name: run.name, status: run.status, conclusion: run.conclusion })));
+            
+            // Check if all status checks pass
+            const allStatusChecksPassed = statusChecks.state === 'success' || statusChecks.state === 'pending';
+            
+            // Check if all check runs are completed and successful
+            const allCheckRunsPassed = checkRuns.check_runs.every(run => 
+              run.status === 'completed' && 
+              (run.conclusion === 'success' || run.conclusion === 'neutral' || run.conclusion === 'skipped')
+            );
+            
+            const ready = pullRequest.mergeable && (allStatusChecksPassed || checkRuns.check_runs.length === 0) && allCheckRunsPassed;
+            
+            console.log('Ready to merge:', ready);
+            core.setOutput('ready', ready.toString());
+
+      - name: Wait for checks to complete
+        if: steps.pr-status.outputs.ready == 'false'
+        run: |
+          echo "PR is not ready to merge yet. Checks may still be running."
+          exit 0
+
+      - name: Enable auto-merge
+        if: steps.pr-status.outputs.ready == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            
+            try {
+              // Enable auto-merge with squash merge
+              await github.rest.pulls.createReview({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber,
+                event: 'APPROVE',
+                body: 'Auto-approving bot PR'
+              });
+              
+              // Enable auto-merge
+              await github.rest.pulls.enableAutoMerge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber,
+                merge_method: 'squash'
+              });
+              
+              console.log(`Auto-merge enabled for PR #${prNumber}`);
+              
+            } catch (error) {
+              console.log('Error enabling auto-merge:', error.message);
+              
+              // Fallback: try to merge directly if auto-merge is not available
+              try {
+                await github.rest.pulls.merge({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: prNumber,
+                  merge_method: 'squash',
+                  commit_title: `Auto-merge bot PR #${prNumber}`,
+                  commit_message: 'Automatically merged by GitHub Actions'
+                });
+                
+                console.log(`Successfully merged PR #${prNumber}`);
+              } catch (mergeError) {
+                console.log('Error merging PR:', mergeError.message);
+                core.setFailed(`Failed to merge PR: ${mergeError.message}`);
+              }
+            }
+
+  # Job to scan all existing bot PRs when manually triggered
+  scan-all-bot-prs:
+    name: Scan all existing bot PRs
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Find and process bot PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log('🔍 Scanning for existing bot PRs...');
+            
+            // Get all open pull requests
+            const { data: pullRequests } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open'
+            });
+            
+            console.log(`Found ${pullRequests.length} open PRs`);
+            
+            // Filter bot PRs
+            const botPRs = pullRequests.filter(pr => {
+              const isBot = pr.user.login === 'dependabot[bot]' || 
+                           pr.user.login === 'renovate[bot]' ||
+                           pr.user.login === 'dependabot-preview[bot]';
+              const isBotBranch = pr.head.ref.startsWith('dependabot/') || 
+                                 pr.head.ref.startsWith('renovate/');
+              
+              return isBot || isBotBranch;
+            });
+            
+            console.log(`Found ${botPRs.length} bot PRs to process`);
+            
+            for (const pr of botPRs) {
+              console.log(`\n📝 Processing PR #${pr.number}: ${pr.title}`);
+              console.log(`   Author: ${pr.user.login}`);
+              console.log(`   Branch: ${pr.head.ref}`);
+              
+              // Check if PR is ready to merge
+              if (pr.state !== 'open' || pr.draft) {
+                console.log(`   ⏭️  Skipping - PR is ${pr.state} or draft`);
+                continue;
+              }
+              
+              // Get status checks
+              const { data: statusChecks } = await github.rest.repos.getCombinedStatusForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha
+              });
+              
+              // Get check runs
+              const { data: checkRuns } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha
+              });
+              
+              console.log(`   Status: ${statusChecks.state}, Check runs: ${checkRuns.check_runs.length}`);
+              
+              // Check if all checks pass
+              const allStatusChecksPassed = statusChecks.state === 'success';
+              const allCheckRunsPassed = checkRuns.check_runs.every(run => 
+                run.status === 'completed' && 
+                (run.conclusion === 'success' || run.conclusion === 'neutral' || run.conclusion === 'skipped')
+              );
+              
+              const ready = pr.mergeable && allStatusChecksPassed && (checkRuns.check_runs.length === 0 || allCheckRunsPassed);
+              
+              if (ready) {
+                console.log(`   ✅ PR is ready to merge!`);
+                
+                try {
+                  // Approve the PR
+                  await github.rest.pulls.createReview({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: pr.number,
+                    event: 'APPROVE',
+                    body: 'Auto-approving bot PR during batch processing'
+                  });
+                  
+                  // Try to enable auto-merge first
+                  try {
+                    await github.rest.pulls.enableAutoMerge({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      pull_number: pr.number,
+                      merge_method: 'squash'
+                    });
+                    
+                    console.log(`   🚀 Auto-merge enabled for PR #${pr.number}`);
+                  } catch (autoMergeError) {
+                    console.log(`   ⚠️  Auto-merge not available, trying direct merge...`);
+                    
+                    // Fallback to direct merge
+                    await github.rest.pulls.merge({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      pull_number: pr.number,
+                      merge_method: 'squash',
+                      commit_title: `Auto-merge bot PR #${pr.number}: ${pr.title}`,
+                      commit_message: 'Automatically merged by GitHub Actions batch processing'
+                    });
+                    
+                    console.log(`   ✅ Successfully merged PR #${pr.number}`);
+                  }
+                  
+                } catch (error) {
+                  console.log(`   ❌ Error processing PR #${pr.number}:`, error.message);
+                }
+              } else {
+                console.log(`   ⏳ PR not ready to merge yet`);
+                console.log(`     - Mergeable: ${pr.mergeable}`);
+                console.log(`     - Status checks: ${statusChecks.state}`);
+                console.log(`     - All check runs passed: ${allCheckRunsPassed}`);
+              }
+            }
+            
+            console.log(`\n🎉 Finished processing ${botPRs.length} bot PRs`);
