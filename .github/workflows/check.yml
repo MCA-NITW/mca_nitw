@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js 16.x
         uses: actions/setup-node@v4
@@ -23,7 +23,7 @@ jobs:
     needs: [setup-node]
     steps:
       - name: Checkout code repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Install dependencies
       - name: Install dependencies
