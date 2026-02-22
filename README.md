@@ -1,157 +1,146 @@
-# MCA_NITW
+# MCA NITW
 
-This repository contains the code for the organization project built using the MERN (MongoDB, Express.js, React, and Node.js) stack.
+The official web portal for the MCA department at NIT Warangal -- featuring alumni networking, student profiles, study materials, placement cell coordination, and academic resources.
 
-## File Structure
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Material UI](https://img.shields.io/badge/MUI-007FFF?style=flat&logo=mui&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 
-The project follows a specific file structure to organize the codebase effectively. Here's an overview of the file structure:
+## Overview
 
-```bash
-├── server
-│   ├── __tests__              # Contains test files for server-side code
-│   ├── configs                # Configuration files for the server
-│   ├── middleware             # Middleware functions for the server
-│   ├── models                 # MongoDB database models
-│   ├── routes                 # API routes
-│   ├── services               # Business logic and service functions
-│   └── utils                  # Utility functions for the server
-└── client
-    └── src
-        ├── components          # Reusable UI components
-        ├── pages               # React component pages
-        ├── services            # Services for making API requests
-        ├── styles              # CSS or styling files
-        └── utils               # Utility functions for the frontend
+A full-stack MERN application serving as the central web portal for MCA students at NIT Warangal. The platform connects current students with alumni, provides access to study materials, coordinates placement activities, and manages student/faculty information.
+
+## Features
+
+- **Alumni Network** -- Browse alumni profiles with individual detail pages
+- **Student Directory** -- Current student information and profiles
+- **Study Materials** -- Centralized academic resource repository
+- **Placement Cell** -- Placement coordination and updates
+- **CR Cell** -- Class Representative coordination panel
+- **Authentication** -- Secure user login and registration
+- **Light/Dark Mode** -- Theme toggle for comfortable viewing
+- **Contact Management** -- Faculty and staff contact information
+- **Responsive Design** -- Works on desktop and mobile devices
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 19, React Router 7, Material-UI (MUI) 6, Bootstrap 5 |
+| Backend | Node.js, Express 4, MongoDB, Mongoose |
+| Auth | bcryptjs password hashing |
+| Formatting | Prettier |
+
+## Pages
+
+| Page | Description |
+|------|-------------|
+| Home | Landing page with department overview |
+| About | Department information and history |
+| Alumni | Alumni directory with individual profiles |
+| Students | Current student information |
+| Study Material | Academic resources organized by subject |
+| Placement Cell | Placement activities and coordination |
+| CR Cell | Class representative panel |
+| Authentication | Login and signup forms |
+| Contact | Faculty and staff contact cards |
+| Full Profile | Detailed user profile view |
+
+## Project Structure
 
 ```
+mca_nitw/
+├── client/                      # React frontend
+│   └── src/
+│       ├── pages/
+│       │   ├── home/           # Landing page
+│       │   ├── About/          # Department info
+│       │   ├── Alumni/         # Alumni directory
+│       │   ├── Authentication/ # Login/Signup
+│       │   ├── Students/       # Student listing
+│       │   ├── StudyMaterial/  # Resources
+│       │   ├── Contact/        # Contact cards
+│       │   ├── PlacementCell/  # Placement info
+│       │   ├── CRCell/         # CR coordination
+│       │   ├── Fullprofile/    # User profiles
+│       │   └── Error/          # Error page
+│       ├── components/
+│       │   ├── navbar/         # Top navigation
+│       │   ├── footer/         # Page footer
+│       │   ├── sidenavbar/     # Side navigation
+│       │   └── mode/           # Dark/light toggle
+│       └── Layout/             # Auth navigation, fallbacks
+├── server/
+│   ├── models/
+│   │   └── User.js             # User Mongoose schema
+│   └── server.js               # Express entry point
+├── package.json                 # Root scripts
+└── .prettierrc                  # Code formatting
+```
 
-### Server Folder
-
-- `__tests__`: This folder contains the test files for the server-side code. It is recommended to write tests for critical functionality to ensure the server behaves as expected.
-
-- `configs`: The `configs` folder holds the configuration files for the server. These files may include settings for the database connection, environment variables, logging, etc.
-
-- `middleware`: Middleware functions are placed in this folder. Middleware functions are used to intercept and process incoming requests before they reach the route handlers. Examples of middleware include authentication, logging, error handling, etc.
-
-- `models`: The `models` folder contains the MongoDB database models. Each model represents a collection in the database and defines the schema and behavior for that collection.
-
-- `routes`: API routes are defined in the `routes` folder. These routes handle incoming requests, validate input, and call the appropriate service functions to process the request.
-
-- `services`: Business logic and service functions reside in the `services` folder. These functions perform operations related to data processing, database interactions, and other business-specific tasks.
-
-- `utils`: The `utils` folder contains utility functions that can be used across different parts of the server codebase. These functions provide common functionalities that are not specific to a single module.
-
-### Client Folder
-
-The `client` folder contains the frontend code for the project, built using React.
-
-- `src`: The `src` folder is the main directory for the React app frontend.
-
-  - `components`: Reusable UI components are stored in the `components` folder. These components can be used across different pages of the application.
-
-  - `pages`: React component pages are placed in the `pages` folder. Each page typically represents a route or a specific view in the application.
-
-  - `services`: The `services` folder contains service functions responsible for making API requests to the server. These functions handle communication with the backend and process the response.
-
-  - `styles`: CSS or styling files are located in the `styles` folder. These files define the visual appearance of the application components.
-
-  - `utils`: Utility functions that are specific to the frontend are stored in the `utils` folder. These functions provide common functionalities that are not tied to a specific component.
-
-## Installation
-
-To get started, follow these instructions to install the necessary dependencies.
+## Getting Started
 
 ### Prerequisites
 
-Make sure you have the following software installed on your system:
+- Node.js 20+
+- npm 9.8+
+- MongoDB (local or Atlas)
 
-- Node.js (version 20.0.0 +)
-- npm (version 9.8.0 + )
+### Installation
 
-### Steps
+```bash
+git clone https://github.com/MCA-NITW/mca_nitw.git
+cd mca_nitw
 
-1. Creating your branch:
+# Install all dependencies and set up environment
+npm install
+npm run set-env
+```
 
-   I. For Organization Members:
+### Running
 
-   - **Branch Creation:**
-     As an organization member, when working on a new feature or task, you should create a new branch from the "develop" branch. The branch name should be in the format `feature-` where `<description>` represents a short description of the task or feature you are working on. For example, if you are adding a login feature, the branch name could be `feature-login`.
-   - **Code Implementation:**
-     Implement the necessary changes and new features on your created branch. Make sure to adhere to the organization's coding standards and best practices.
-   - **Code Testing:**
-     Thoroughly test your changes on the branch to ensure that they work as expected and do not introduce any bugs or issues.
-   - **Code Review:**
-     If required by the organization's development process, request a code review from your peers to ensure code quality and adherence to project guidelines.
-   - **Pull Request Creation:**
-     Once you are confident that your code is complete and tested, create a pull request to merge your changes from the `feature-*` branch into the `develop` branch. Clearly explain the purpose and scope of the changes in the pull request description.
+```bash
+# Start both frontend and backend
+npm run dev
 
-   II. For Outside Collaborators:
+# Backend only
+npm run backend-start
 
-   - **Clone the Repository:**
-     As an outside collaborator, you first need to clone the repository containing the project. This will give you a local copy of the codebase to work with.
-   - **Create a New Branch:**
-     After cloning, create a new branch from the `develop` branch to work on your specific task or feature. The branch name should also follow the format `feature-` where `<description>` describes the purpose of your changes.
-   - **Implement Changes:**
-     Proceed with implementing the necessary code changes or new features on your branch. Ensure your modifications align with the project's guidelines and meet the intended functionality.
-   - **Test Your Changes:**
-     Thoroughly test the code changes you made to verify that they work as expected and do not introduce any errors.
-   - **Create a Pull Request:**
-     Once your changes are ready, create a pull request to propose merging your branch into the `develop` branch. Provide a clear and detailed explanation of the changes you made, the reasoning behind them, and any relevant context that might help with the review process.
-   - **Address Feedback:**
-     Be responsive to any feedback or comments provided during the pull request review. Make necessary adjustments and improvements based on the feedback before your changes can be merged into the main project.
+# Frontend only
+npm run frontend-start
 
-2. Change into the project directory:
+# Format code
+npm run format
+```
 
-   ```bash
-   cd mca_nitw
-   ```
-
-3. Install project dependencies:
-
-   ```bash
-   npm install
-   npm run set-env
-   ```
-
-   This command will install the necessary dependencies for both the frontend and backend.
-
-4. Start the development server:
-
-   I. For frontend and backend both
-
-   ```bash
-   npm run dev
-   ```
-
-   This command will start the development server for both the frontend and backend.
-
-   II. For backend only
-
-   ```bash
-   npm backend-start
-   ```
-
-   This command will start the development server for backend.
-
-   III. For backend only
-
-   ```bash
-    npm frontend-start
-   ```
-
-   This command will start the development server for frontend.
-
-5. Open the application in your browser:
-
-   ```bash
-   http://localhost:3000
-   ```
-
-   The application should now be running in your browser.
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:3000 |
+| Backend | http://localhost:5000 |
 
 ## Contributing
 
-Contributions are welcome! Please refer to the [contributing guidelines](CONTRIBUTING.md) for detailed instructions.
+Contributions from MCA-NITW members and external collaborators are welcome.
+
+### For Organization Members
+
+1. Create a branch from `develop`: `feature-<description>`
+2. Implement and test your changes
+3. Create a Pull Request to `develop`
+
+### For External Contributors
+
+1. Fork the repository
+2. Create a branch from `develop`: `feature-<description>`
+3. Implement and test your changes
+4. Create a Pull Request to `develop`
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## Organization
+
+This project is maintained by [MCA-NITW](https://github.com/MCA-NITW), the GitHub organization for the MCA department at the National Institute of Technology, Warangal.
 
 ## License
 
