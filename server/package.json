@@ -17,7 +17,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^5.0.0",
-    "mongoose": "^8.0.0"
+    "mongoose": "^9.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
