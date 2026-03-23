@@ -1,14 +1,18 @@
 # Changelog
 
-## [1.2.0] - 2026-03-07
+## [1.3.0] - 2026-03-07
 
 - Fix security vulnerabilities
-- Upgrade Express to v5 via Renovate
-- Switch from Dependabot to Renovate for monthly grouped updates
+- Upgrade Express to v5
 
-## [1.1.0] - 2026-02-28
+## [1.2.0] - 2026-02-22
 
-- Configure Renovate for dependency management
+- Revamp README with project overview, features, tech stack, simplified structure
+
+## [1.1.0] - 2025-07-26
+
+- Add GitHub Actions workflow for auto-merging bot PRs
+- Switch from Dependabot to Renovate for dependency management
 
 ## [1.0.0] - 2023-02-19
 
