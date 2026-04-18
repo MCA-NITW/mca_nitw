@@ -48,3 +48,9 @@ node_modules/
 
 #Exclude yarn.lock
 yarn.lock
+# Added for consistency
+.env.local
+.env.*.local
+Thumbs.db
+dist/
+.next/
