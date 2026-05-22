@@ -1,8 +1,4 @@
-**/node_modules/**
-**/bower_components/**
-**/dist/**
-**/tmp/**
-**/vendor/**
-**/coverage/**
-**/build/**
-.github/**
+package-lock.json
+node_modules/
+client/build/
+server/node_modules/
