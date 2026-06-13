@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  width: calc(100% - (--main-body-section-margin-left) );
+  width: calc(100% - var(--main-body-section-margin-left));
   height: 100%;
   background-color: var(--bg-black-900);
   padding: 20px;

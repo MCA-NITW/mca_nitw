@@ -25,27 +25,27 @@ A full-stack MERN application serving as the central web portal for MCA students
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 19, React Router 7, Material-UI (MUI) 6, Bootstrap 5 |
-| Backend | Node.js, Express 4, MongoDB, Mongoose |
-| Auth | bcryptjs password hashing |
-| Formatting | Prettier |
+| Layer      | Technology                                                 |
+| ---------- | ---------------------------------------------------------- |
+| Frontend   | React 19, React Router 7, Material-UI (MUI) 6, Bootstrap 5 |
+| Backend    | Node.js, Express 4, MongoDB, Mongoose                      |
+| Auth       | bcryptjs password hashing                                  |
+| Formatting | Prettier                                                   |
 
 ## Pages
 
-| Page | Description |
-|------|-------------|
-| Home | Landing page with department overview |
-| About | Department information and history |
-| Alumni | Alumni directory with individual profiles |
-| Students | Current student information |
-| Study Material | Academic resources organized by subject |
-| Placement Cell | Placement activities and coordination |
-| CR Cell | Class representative panel |
-| Authentication | Login and signup forms |
-| Contact | Faculty and staff contact cards |
-| Full Profile | Detailed user profile view |
+| Page           | Description                               |
+| -------------- | ----------------------------------------- |
+| Home           | Landing page with department overview     |
+| About          | Department information and history        |
+| Alumni         | Alumni directory with individual profiles |
+| Students       | Current student information               |
+| Study Material | Academic resources organized by subject   |
+| Placement Cell | Placement activities and coordination     |
+| CR Cell        | Class representative panel                |
+| Authentication | Login and signup forms                    |
+| Contact        | Faculty and staff contact cards           |
+| Full Profile   | Detailed user profile view                |
 
 ## Project Structure
 
@@ -114,10 +114,10 @@ npm run frontend-start
 npm run format
 ```
 
-| Service | URL |
-|---------|-----|
+| Service  | URL                   |
+| -------- | --------------------- |
 | Frontend | http://localhost:3000 |
-| Backend | http://localhost:5000 |
+| Backend  | http://localhost:5000 |
 
 ## Contributing
 

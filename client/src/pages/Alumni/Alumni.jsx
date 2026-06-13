@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import UserList from "./UserList";
 import { fallback } from "../../Layout/fallback";
 import { Await, useLoaderData } from "react-router-dom";
-import { defer } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 
 import classes from "./Alumni.module.css";
@@ -51,7 +50,9 @@ const userLoader = async () => {
 };
 
 export const loader = () => {
-  return defer({
+  // react-router v7 removed `defer`; return a plain object whose values are
+  // promises and let <Await> resolve them.
+  return {
     users: userLoader(),
-  });
+  };
 };

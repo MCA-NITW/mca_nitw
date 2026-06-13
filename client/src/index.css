@@ -7,11 +7,11 @@
 
 :root {
   /* Light Theme Colors */
-  --bg-black-900: #FFFFFF; /* Light background */
-  --bg-black-100: #F0F0F0; /* Lighter grey for elements */
-  --bg-black-50: #E0E0E0;  /* Even lighter grey, possibly for hover states */
+  --bg-black-900: #ffffff; /* Light background */
+  --bg-black-100: #f0f0f0; /* Lighter grey for elements */
+  --bg-black-50: #e0e0e0; /* Even lighter grey, possibly for hover states */
   --text-black-700: #333333; /* Dark grey for text */
-  --text-black-900: #1A1A1A; /* Almost black for headings or important text */
+  --text-black-900: #1a1a1a; /* Almost black for headings or important text */
   --shadow-box: 0 0 4px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme */
   --radius: 5px;
   --main-body-section-margin-left: 1rem;
@@ -21,9 +21,9 @@ body.dark {
   /* Dark Theme Colors */
   --bg-black-900: #121212; /* Dark background */
   --bg-black-100: #242424; /* Darker grey for elements */
-  --bg-black-50: #373737;  /* Even darker grey, possibly for hover states */
-  --text-black-700: #CCCCCC; /* Light grey for text */
-  --text-black-900: #E0E0E0; /* Brighter grey for headings or important text */
+  --bg-black-50: #373737; /* Even darker grey, possibly for hover states */
+  --text-black-700: #cccccc; /* Light grey for text */
+  --text-black-900: #e0e0e0; /* Brighter grey for headings or important text */
   --shadow-box: 0 0 4px 2px rgba(255, 255, 255, 0.1); /* Subtle shadow for dark theme */
 }
 
