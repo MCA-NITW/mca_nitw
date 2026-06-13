@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/navbar/navbar.jsx";
 import SideNavBar from "./components/sidenavbar/sidenavbar.jsx";
@@ -23,8 +23,8 @@ function App() {
   useEffect(() => {
     // Update the CSS variable based on the isLoggedIn state
     document.documentElement.style.setProperty(
-      '--main-body-section-margin-left',
-      isloggedin ? '17rem' : '1rem'
+      "--main-body-section-margin-left",
+      isloggedin ? "17rem" : "1rem"
     );
   }, [isloggedin]);
 
