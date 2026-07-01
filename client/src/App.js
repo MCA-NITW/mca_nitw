@@ -6,7 +6,7 @@ import Home from "./pages/home/home.jsx";
 import About from "./pages/about/about.jsx";
 import Contact from "./pages/contact/contact.jsx";
 import Students from "./pages/Students/Students.jsx";
-import Alumni from "./pages/Alumni/Alumni.jsx";
+import Alumni, { loader as alumniLoader } from "./pages/Alumni/Alumni.jsx";
 import Authentication from "./pages/Authentication/Authentication";
 import ErrorPage from "./pages/Error/ErrorPage.jsx";
 import Mode from "./components/mode/mode.jsx";
@@ -34,7 +34,7 @@ function App() {
         { path: "/about", element: <About /> },
         { path: "/contact", element: <Contact /> },
         { path: "/students", element: <Students /> },
-        { path: "/alumni", element: <Alumni /> },
+        { path: "/alumni", element: <Alumni />, loader: alumniLoader },
         { path: "/profile", element: <Profile /> },
         { path: "/crcell", element: <CrCell /> },
         { path: "/placementcell", element: <PlacementCell /> },
