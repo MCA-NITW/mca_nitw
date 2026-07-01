@@ -21,7 +21,6 @@ jobs:
   client-build:
     name: Client Build
     runs-on: ubuntu-latest
-    continue-on-error: true # pre-existing: case-sensitive import fails on Linux
     defaults:
       run:
         working-directory: client
