@@ -1,6 +1,7 @@
 # CLAUDE.md
 
 > This file stacks on top of the workspace root at `C:\Code\GitHub\`:
+>
 > - Root [`CLAUDE.md`](../../CLAUDE.md) -- voice, rules, routing map, references, skills, slash commands, conventions.
 > - Root [`MEMORY.md`](../../MEMORY.md) -- live facts across repos.
 > - Root [`STATUS.md`](../../STATUS.md) -- live PR/CI/security dashboard.
