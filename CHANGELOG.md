@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.0] - 2026-09-03
+
+- Resolve all 47 open Dependabot alerts across client, server, and root (including critical websocket-driver CVE)
+- Extend security overrides: patch webpack-dev-server, react-router, fast-uri, postcss, qs, shell-quote, js-yaml, brace-expansion, browserslist, nanoid, svgo, form-data, http-proxy-middleware, body-parser, @babel/core
+
 ## [1.3.0] - 2026-03-07
 
 - Fix security vulnerabilities
