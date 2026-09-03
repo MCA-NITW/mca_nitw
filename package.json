@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "concurrently": "^9.0.0",
+    "concurrently": "^10.0.0",
     "prettier": "^3.0.0"
   },
   "overrides": {
