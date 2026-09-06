@@ -56,6 +56,7 @@
     "js-yaml@4": "^4.3.1",
     "nanoid": "^3.3.18",
     "svgo": "^2.8.3",
+    "underscore": ">=1.13.8",
     "websocket-driver": ">=0.7.5"
   },
   "eslintConfig": {
