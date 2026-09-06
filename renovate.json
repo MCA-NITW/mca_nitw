@@ -1,4 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>mca-nitw/.github"]
+  "extends": [
+    "github>mca-nitw/.github"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "@babel/core"
+      ],
+      "allowedVersions": "<8",
+      "description": "Hold Babel below 8. react-scripts (CRA 5.0.1) calls Babel's createConfigItem synchronously, and Babel 8 made it callback-based, so the client build dies with 'Starting from Babel 8.0.0, the createConfigItem function expects a callback'. CRA is unmaintained and will never ship a fix. Remove this rule only when the client moves off react-scripts."
+    }
+  ]
 }
