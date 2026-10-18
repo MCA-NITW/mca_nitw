@@ -142,7 +142,7 @@ against this branch:
 | ------------------------------------------- | -------------- | -------------- |
 | Installed packages (`npm ls --all`)         | 1,354          | 134            |
 | `npm audit` advisories                      | 53             | 0              |
-| Production build, second run                | 28.4 s         | 1.9 s          |
+| Production build, warm (`npm run build`)    | 15.2 to 17.6 s | 1.7 to 1.8 s   |
 | `--legacy-peer-deps` needed                 | yes            | no             |
 | Main JS bundle, gzip (after adds auth code) | 97.48 kB       | 107.92 kB      |
 

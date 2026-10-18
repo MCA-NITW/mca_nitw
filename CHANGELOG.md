@@ -22,7 +22,7 @@
 - Move the client from Create React App 5 to Vite 8 and from
   `react-router-dom` 7 to `react-router` 8. Client `npm audit` goes from 53
   advisories to 0, installed packages from 1,354 to 134, and a production
-  build from 28.4 s to 1.9 s; `--legacy-peer-deps` and the CRA override block
+  build from about 16 s to under 2 s; `--legacy-peer-deps` and the CRA override block
   are gone
 - Server: CORS allowlist from `CLIENT_ORIGIN` with credentials, 100 kB JSON
   limit (was 30 MB), JSON error responses, `/api/health`, no artificial 1 s
