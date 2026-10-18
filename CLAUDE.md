@@ -20,7 +20,9 @@ Official web portal for the MCA department at NIT Warangal: alumni network, stud
 - **Backend**: Express 5 (ESM), Mongoose 9
 - **Database**: MongoDB (Atlas or local)
 - **Package manager**: npm (org convention, package-lock.json committed)
-- **Deploy target**: GitHub Pages for the client via `.github/workflows/pages.yml` (`PUBLIC_URL=/mca_nitw`, router `basename`, `404.html` SPA fallback); the server is local only
+- **Deploy target**: GitHub Pages for the client via
+  `.github/workflows/pages.yml` (`PUBLIC_URL=/mca_nitw`, router `basename`,
+  `404.html` SPA fallback); the server is local only
 
 ## Run
 
@@ -53,7 +55,8 @@ No test suite. Root and server `npm test` exit 1 by design. CI covers format che
 - Heavy `overrides` blocks in all three package.json files pin transitive deps for security alerts -- keep them when bumping deps.
 - Backend has exactly one route so far; the Authentication pages are client-side forms with no server endpoints behind them yet.
 - Never pass `useNewUrlParser`/`useUnifiedTopology` to `mongoose.connect`: Mongoose 9 throws `MongoParseError` and the server never listens (fixed in 1.5.0).
-- `PUBLIC_URL=/mca_nitw` in Git Bash gets rewritten to a Windows path; prefix local builds with `MSYS_NO_PATHCONV=1`.
+- `PUBLIC_URL=/mca_nitw` in Git Bash gets rewritten to a Windows path; prefix
+  local builds with `MSYS_NO_PATHCONV=1`.
 
 ## Repo-specific rules
 

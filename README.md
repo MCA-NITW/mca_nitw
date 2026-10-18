@@ -13,23 +13,32 @@ Web portal for the MCA department at NIT Warangal -- alumni networking, student 
 
 ## Overview
 
-A MERN application meant to be the central web portal for MCA students at NIT Warangal. The goal is to connect current students with alumni, give one place for study material and placement updates, and keep student and faculty information in one directory.
+A MERN application meant to be the central web portal for MCA students at NIT
+Warangal. The goal is to connect current students with alumni, give one place
+for study material and placement updates, and keep student and faculty
+information in one directory.
 
 ## Project status
 
-The frontend shell, routing, theming and page layouts are built. Most data is still static, and the backend has a single read endpoint. Be clear about this when you demo it:
+The frontend shell, routing, theming and page layouts are built. Most data is
+still static, and the backend has a single read endpoint. Be clear about this
+when you demo it:
 
-| Area                          | State                                                                                       |
-| ----------------------------- | ------------------------------------------------------------------------------------------- |
-| Routing, navbar, side nav     | Done. Logged-in users get extra routes (profile, CR cell, placement cell, alumni, material) |
-| Light/dark mode               | Done (toggle adds a `dark` class on `<body>`, CSS variables switch)                         |
-| Responsive layout             | Done. On phones the top nav wraps and the side nav becomes a bottom tab bar                 |
-| Contact page                  | Team cards are live; the form logs to the console, it does not send yet                     |
-| Alumni directory              | UI and route loader done; the loader returns a hardcoded list, not the API                  |
-| Full profile                  | Layout done with placeholder data                                                           |
-| Login / signup                | UI only. "Login" flips client-side state; there is no auth API or password storage yet      |
-| Home, About, Students, others | Placeholder headings                                                                        |
-| Backend                       | `GET /users/all` reads the `User` collection from MongoDB                                   |
+- **Routing, navbar, side nav**: Done. Logged-in users get extra routes
+  (profile, CR cell, placement cell, alumni, material)
+- **Light/dark mode**: Done (toggle adds a `dark` class on `<body>`, CSS
+  variables switch)
+- **Responsive layout**: Done. On phones the top nav wraps and the side nav
+  becomes a bottom tab bar
+- **Contact page**: Team cards are live; the form logs to the console, it does
+  not send yet
+- **Alumni directory**: UI and route loader done; the loader returns a hardcoded
+  list, not the API
+- **Full profile**: Layout done with placeholder data
+- **Login / signup**: UI only. "Login" flips client-side state; there is no auth
+  API or password storage yet
+- **Home, About, Students, others**: Placeholder headings
+- **Backend**: `GET /users/all` reads the `User` collection from MongoDB
 
 ## Architecture
 
@@ -48,9 +57,17 @@ flowchart LR
     GP --> A
 ```
 
-- **Client** (`client/`): one router in [`client/src/App.js`](client/src/App.js). The route list depends on the `isloggedin` state, so protected pages simply do not exist for a logged-out visitor and fall through to the error page.
-- **Server** (`server/`): [`server/server.js`](server/server.js) connects to MongoDB with `CONNECTION_URL` and only starts listening once the connection succeeds.
-- **Deploy**: [`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds the client with `PUBLIC_URL=/mca_nitw`, copies `index.html` to `404.html` so deep links work on Pages, and deploys it. The router reads the same `PUBLIC_URL` as its `basename`.
+- **Client** (`client/`): one router in
+  [`client/src/App.js`](client/src/App.js). The route list depends on the
+  `isloggedin` state, so protected pages simply do not exist for a logged-out
+  visitor and fall through to the error page.
+- **Server** (`server/`): [`server/server.js`](server/server.js) connects to
+  MongoDB with `CONNECTION_URL` and only starts listening once the connection
+  succeeds.
+- **Deploy**: [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
+  builds the client with `PUBLIC_URL=/mca_nitw`, copies `index.html` to
+  `404.html` so deep links work on Pages, and deploys it. The router reads the
+  same `PUBLIC_URL` as its `basename`.
 
 ## Features
 
@@ -61,34 +78,35 @@ flowchart LR
 - **CR Cell** -- Class Representative page (placeholder)
 - **Authentication UI** -- Login and signup forms (no backend yet, see Project status)
 - **Light/Dark Mode** -- Theme toggle for comfortable viewing
-- **Contact** -- Team cards with LinkedIn, GitHub and Instagram links, plus a contact form
+- **Contact** -- Team cards with LinkedIn, GitHub and Instagram links, plus a
+  contact form
 - **Responsive Design** -- Works on desktop and mobile devices
 
 ## Tech Stack
 
-| Layer      | Technology                                                                                |
-| ---------- | ----------------------------------------------------------------------------------------- |
-| Frontend   | React 19, react-router-dom 7, Create React App 5, CSS Modules, Bootstrap 5, react-icons   |
-| Backend    | Node.js, Express 5 (ESM), Mongoose 9, MongoDB                                             |
-| Tooling    | Prettier, GitHub Actions (format check, security scan, client build, server syntax check) |
-| Deployment | GitHub Pages (client)                                                                     |
+- **Frontend**: React 19, react-router-dom 7, Create React App 5, CSS Modules,
+  Bootstrap 5, react-icons
+- **Backend**: Node.js, Express 5 (ESM), Mongoose 9, MongoDB
+- **Tooling**: Prettier, GitHub Actions (format check, security scan, client
+  build, server syntax check)
+- **Deployment**: GitHub Pages (client)
 
 MUI and bcryptjs are installed but not used in the code yet.
 
 ## Pages
 
-| Page           | Route            | Description                               |
-| -------------- | ---------------- | ----------------------------------------- |
-| Home           | `/`              | Landing page                              |
-| About          | `/about`         | Department information                    |
-| Contact        | `/contact`       | Team cards and contact form               |
-| Students       | `/students`      | Current student information               |
-| Authentication | `/auth?mode=...` | Login and signup forms                    |
-| Full Profile   | `/profile`       | Detailed user profile view (logged in)    |
-| CR Cell        | `/crcell`        | Class representative panel (logged in)    |
-| Placement Cell | `/placementcell` | Placement activities (logged in)          |
-| Alumni         | `/alumni`        | Alumni directory (logged in)              |
-| Study Material | `/studymaterial` | Academic resources by subject (logged in) |
+| Page           | Route            | Description                            |
+| -------------- | ---------------- | -------------------------------------- |
+| Home           | `/`              | Landing page                           |
+| About          | `/about`         | Department information                 |
+| Contact        | `/contact`       | Team cards and contact form            |
+| Students       | `/students`      | Current student information            |
+| Authentication | `/auth?mode=...` | Login and signup forms                 |
+| Full Profile   | `/profile`       | Detailed user profile view (logged in) |
+| CR Cell        | `/crcell`        | Class representative panel (logged in) |
+| Placement Cell | `/placementcell` | Placement activities (logged in)       |
+| Alumni         | `/alumni`        | Alumni directory (logged in)           |
+| Study Material | `/studymaterial` | Study resources by subject (logged in) |
 
 ## Project Structure
 
@@ -175,7 +193,9 @@ The backend port comes from `PORT` in `server/.env`.
 
 ## Contributing
 
-Contributions from MCA-NITW members and external collaborators are welcome. Branch from `main`, keep `npm run format` clean, and open a pull request to `main`. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions from MCA-NITW members and external collaborators are welcome.
+Branch from `main`, keep `npm run format` clean, and open a pull request to
+`main`. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Organization
 
