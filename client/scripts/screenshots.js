@@ -13,7 +13,9 @@ import { join } from "node:path";
 import { build, preview } from "vite";
 import { chromium } from "playwright";
 
-const OUT = join(import.meta.dirname, "../../docs/screenshots");
+// Every path below is relative to client/, wherever the script starts from
+process.chdir(join(import.meta.dirname, ".."));
+
 const PORT = 4174;
 const BASE = `http://localhost:${PORT}`;
 const QUALITY = 0.82;
@@ -39,7 +41,7 @@ const toWebp = (page, png) =>
 await build({ mode: "demo", logLevel: "warn" });
 const server = await preview({ preview: { port: PORT, strictPort: true } });
 const browser = await chromium.launch();
-await mkdir(OUT, { recursive: true });
+await mkdir("../docs/screenshots", { recursive: true });
 
 // Each shot gets its own page, and so its own demo session
 const capture = async shot => {
@@ -83,11 +85,11 @@ const capture = async shot => {
 
 try {
   await writeFile(
-    join(OUT, "alumni-desktop.webp"),
+    "../docs/screenshots/alumni-desktop.webp",
     await capture({ ...DESKTOP, path: "/alumni", signIn: true })
   );
   await writeFile(
-    join(OUT, "alumni-desktop-dark.webp"),
+    "../docs/screenshots/alumni-desktop-dark.webp",
     await capture({
       ...DESKTOP,
       path: "/alumni?q=bengaluru",
@@ -96,15 +98,15 @@ try {
     })
   );
   await writeFile(
-    join(OUT, "login-desktop.webp"),
+    "../docs/screenshots/login-desktop.webp",
     await capture({ ...DESKTOP, path: "/auth?mode=login" })
   );
   await writeFile(
-    join(OUT, "alumni-phone.webp"),
+    "../docs/screenshots/alumni-phone.webp",
     await capture({ ...PHONE, path: "/alumni", signIn: true })
   );
   await writeFile(
-    join(OUT, "login-phone.webp"),
+    "../docs/screenshots/login-phone.webp",
     await capture({ ...PHONE, path: "/auth?mode=login" })
   );
 } finally {

@@ -7,10 +7,10 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { chromium } from "playwright";
 
-const logo = await readFile(
-  join(import.meta.dirname, "../public/logo.svg"),
-  "utf8"
-);
+// Every path below is relative to client/, wherever the script starts from
+process.chdir(join(import.meta.dirname, ".."));
+
+const logo = await readFile("public/logo.svg", "utf8");
 
 const html = `<!doctype html>
 <html>
@@ -51,7 +51,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
 await page.setContent(html);
 const png = await page.screenshot({
-  path: join(import.meta.dirname, "../public/og.png"),
+  path: "public/og.png",
 });
 console.log(`public/og.png  ${(png.length / 1024).toFixed(1)} KiB`);
 await browser.close();

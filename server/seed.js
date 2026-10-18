@@ -5,7 +5,6 @@
 //   npm run seed            (reads CONNECTION_URL from server/.env)
 import "dotenv/config";
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 import User from "./models/User.js";
@@ -13,11 +12,10 @@ import User from "./models/User.js";
 const DEMO_EMAIL = "demo@example.com";
 const { CONNECTION_URL, SEED_DEMO_PASSWORD } = process.env;
 
+// Resolve the data path from server/, wherever the script starts from
+process.chdir(import.meta.dirname);
 const alumni = JSON.parse(
-  await readFile(
-    join(import.meta.dirname, "../client/src/data/alumni.json"),
-    "utf8"
-  )
+  await readFile("../client/src/data/alumni.json", "utf8")
 );
 
 if (!CONNECTION_URL) {
