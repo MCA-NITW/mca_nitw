@@ -129,7 +129,7 @@
     white-space: nowrap;
   }
 
-  :global(body):has(.sidenavbar) {
+  body:has(.sidenavbar) {
     padding-bottom: 4rem;
   }
 }
