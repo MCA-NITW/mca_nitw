@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 import classes from "./Authentication.module.css";
 import { FaFacebookF, FaGoogle, FaGithub, FaLinkedinIn } from "react-icons/fa";
@@ -72,6 +73,10 @@ const Login = props => {
       </div>
     </div>
   );
+};
+
+Login.propTypes = {
+  onAuthenticated: PropTypes.func.isRequired,
 };
 
 export default Login;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSearchParams } from "react-router";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -21,6 +22,10 @@ const Authentication = props => {
       </div>
     </div>
   );
+};
+
+Authentication.propTypes = {
+  onAuthenticated: PropTypes.func.isRequired,
 };
 
 export default Authentication;

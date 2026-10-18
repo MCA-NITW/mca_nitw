@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link, NavLink } from "react-router";
 import classes from "./sidenavbar.module.css";
 import { TEXT } from "../../lib/text";
@@ -41,4 +42,16 @@ const SideNavBar = props => {
     </div>
   );
 };
+
+SideNavBar.propTypes = {
+  SideNavLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      to: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onLogout: PropTypes.func.isRequired,
+};
+
 export default SideNavBar;

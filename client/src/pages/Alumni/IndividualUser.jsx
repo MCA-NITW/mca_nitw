@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classes from "./Alumni.module.css";
 import { Link } from "react-router";
 import { TEXT } from "../../lib/text";
@@ -59,6 +60,19 @@ const IndividualUser = props => {
       </div>
     </div>
   );
+};
+
+IndividualUser.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    designation: PropTypes.string,
+    company: PropTypes.string,
+    institute: PropTypes.string,
+    batch: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    location: PropTypes.string,
+    linkedin: PropTypes.string,
+  }).isRequired,
 };
 
 export default IndividualUser;
