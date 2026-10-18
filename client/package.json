@@ -1,82 +1,32 @@
 {
-  "browserslist": {
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ],
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ]
+  "name": "client",
+  "private": true,
+  "version": "1.6.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "screenshots": "node scripts/screenshots.js",
+    "og-image": "node scripts/og-image.js"
   },
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@fontsource/roboto": "^5.0.0",
     "@mui/icons-material": "^9.0.0",
     "@mui/material": "^9.0.0",
-    "@testing-library/jest-dom": "^7.0.0",
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.0.0",
     "bootstrap": "^5.2.3",
+    "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^19.0.0",
     "react-icons": "^5.0.0",
-    "react-router-dom": "^7.18.2",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^6.0.0"
+    "react-router": "^8.4.0"
   },
-  "overrides": {
-    "lodash": ">=4.18.0",
-    "shell-quote": ">=1.11.0",
-    "react-router": "^8.0.0",
-    "qs": ">=6.16.0",
-    "postcss": ">=8.5.23",
-    "fast-uri": ">=4.1.5",
-    "@babel/plugin-transform-modules-systemjs": ">=7.29.4",
-    "follow-redirects": ">=1.16.0",
-    "webpack-dev-server": "^6.0.0",
-    "ws": ">=8.20.1",
-    "launch-editor": ">=2.9.0",
-    "@tootallnate/once": ">=2.0.1",
-    "uuid": ">=11.1.1",
-    "serialize-javascript": ">=7.0.5",
-    "@babel/core": "^7.29.6",
-    "body-parser": "^2.0.0",
-    "brace-expansion@1": "^1.1.21",
-    "brace-expansion@2": "^2.1.7",
-    "browserslist": ">=4.28.7",
-    "colord": ">=2.9.4",
-    "form-data": "^4.0.0",
-    "http-proxy-middleware": "^4.0.0",
-    "js-yaml@3": "^3.15.1",
-    "js-yaml@4": "^4.3.1",
-    "nanoid": "^6.0.0",
-    "svgo": "^4.0.0",
-    "underscore": ">=1.13.8",
-    "websocket-driver": ">=0.7.5",
-    "proxy-addr": "^2.0.8",
-    "compression": "^1.8.2",
-    "source-map-js": "^1.2.2",
-    "postcss-selector-parser": "^7.1.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "name": "client",
-  "private": true,
-  "scripts": {
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
-  },
-  "version": "0.1.0"
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "playwright": "^1.64.1",
+    "vite": "^8.3.4"
+  }
 }

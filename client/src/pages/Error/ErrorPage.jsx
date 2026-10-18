@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteError, isRouteErrorResponse } from "react-router-dom";
+import { useRouteError, isRouteErrorResponse } from "react-router";
 import PageContent from "../../components/PageContent/PageContent";
 
 const ErrorPage = () => {

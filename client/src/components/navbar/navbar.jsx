@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router";
 import classes from "./navbar.module.css";
 
 const Nav = props => {
@@ -11,8 +11,8 @@ const Nav = props => {
         <div className={classes.nav_logo}>
           <Link to="/">
             <img
-              src="https://static.vecteezy.com/system/resources/previews/013/389/534/non_2x/mca-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-free-vector.jpg"
-              alt="Logo"
+              src={`${import.meta.env.BASE_URL}logo.svg`}
+              alt="MCA NIT Warangal"
             />
           </Link>
         </div>

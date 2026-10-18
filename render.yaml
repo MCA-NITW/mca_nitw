@@ -1,0 +1,31 @@
+# Render Blueprint for the API (server/). The "Deploy to Render" button in the
+# README reads this file. MongoDB itself is not created here: point
+# CONNECTION_URL at a MongoDB Atlas cluster (the free M0 tier is enough).
+services:
+  - type: web
+    name: mca-nitw-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm ci --omit=dev --ignore-scripts
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: CONNECTION_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      # The Pages site; add more origins comma-separated
+      - key: CLIENT_ORIGIN
+        value: https://mca-nitw.github.io
+      # github.io and onrender.com are different sites, so the session
+      # cookie must be SameSite=None (sent only over HTTPS)
+      - key: COOKIE_SAMESITE
+        value: none
+      # Render sits behind one proxy hop; trust it for per-IP rate limits
+      - key: TRUST_PROXY
+        value: "1"
