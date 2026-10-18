@@ -34,7 +34,9 @@ cd client && npm run build        # production build (CRA)
 
 ## Test
 
-No test suite. Root and server `npm test` exit 1 by design. CI covers format check, security scan, client build, and `node --check server.js` only. For a live server check, run it against a throwaway MongoDB and hit `GET /users/all`.
+No test suite. Root and server `npm test` exit 1 by design. CI covers format
+check, security scan, client build, and `node --check server.js` only. For a
+live server check, run it against a throwaway MongoDB and hit `GET /users/all`.
 
 ## Entry points
 
