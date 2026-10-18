@@ -166,10 +166,10 @@ npm run frontend-start
 npm run format
 ```
 
-| Service  | URL                             |
-| -------- | ------------------------------- |
-| Frontend | http://localhost:3000           |
-| Backend  | http://localhost:5000/users/all |
+| Service  | URL                               |
+| -------- | --------------------------------- |
+| Frontend | `http://localhost:3000`           |
+| Backend  | `http://localhost:5000/users/all` |
 
 The backend port comes from `PORT` in `server/.env`.
 
