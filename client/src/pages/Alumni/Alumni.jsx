@@ -9,6 +9,12 @@ import classes from "./Alumni.module.css";
 
 const SEARCH_DELAY_MS = 300;
 
+const statusText = (count, q) => {
+  if (count === 0) return `No alumni match "${q}"`;
+  const members = count === 1 ? "1 member" : `${count} members`;
+  return q ? `${members} matching "${q}"` : members;
+};
+
 const Alumni = () => {
   const { users, q } = useLoaderData();
   const submit = useSubmit();
@@ -66,9 +72,7 @@ const Alumni = () => {
           {allUsers => (
             <>
               <p className={classes.status} aria-live="polite">
-                {allUsers.length === 0
-                  ? `No alumni match "${q}"`
-                  : `${allUsers.length} ${allUsers.length === 1 ? "member" : "members"}${q ? ` matching "${q}"` : ""}`}
+                {statusText(allUsers.length, q)}
               </p>
               <UserList allUsers={allUsers} />
             </>

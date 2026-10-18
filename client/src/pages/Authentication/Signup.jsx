@@ -10,7 +10,8 @@ const passwordsMatch = values =>
 
 const Signup = props => {
   const { onSubmit, error, pending } = useAuthForm(
-    ({ confirmPassword, ...details }) => api.signup(details),
+    ({ name, email, batch, password }) =>
+      api.signup({ name, email, batch, password }),
     props.onAuthenticated,
     passwordsMatch
   );

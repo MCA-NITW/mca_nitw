@@ -17,13 +17,19 @@ open Alumni.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/MCA-NITW/mca_nitw)
 
-| Alumni directory (desktop)                                           | Dark mode with search                                                    |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| ![Alumni directory on desktop](docs/screenshots/alumni-desktop.webp) | ![Alumni search in dark mode](docs/screenshots/alumni-desktop-dark.webp) |
+| Alumni directory (desktop)  | Dark mode with search      |
+| --------------------------- | -------------------------- |
+| ![Alumni on desktop][shot1] | ![Alumni dark mode][shot2] |
 
-| Sign in (desktop)                                  | Alumni (phone)                                           | Sign in (phone)                                        |
-| -------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------ |
-| ![Login page](docs/screenshots/login-desktop.webp) | ![Alumni on a phone](docs/screenshots/alumni-phone.webp) | ![Login on a phone](docs/screenshots/login-phone.webp) |
+| Sign in (desktop)    | Alumni (phone)            | Sign in (phone)          |
+| -------------------- | ------------------------- | ------------------------ |
+| ![Login page][shot3] | ![Alumni on phone][shot4] | ![Login on phone][shot5] |
+
+[shot1]: docs/screenshots/alumni-desktop.webp
+[shot2]: docs/screenshots/alumni-desktop-dark.webp
+[shot3]: docs/screenshots/login-desktop.webp
+[shot4]: docs/screenshots/alumni-phone.webp
+[shot5]: docs/screenshots/login-phone.webp
 
 ## Overview
 
@@ -96,10 +102,10 @@ flowchart LR
   in [`routes/users.js`](server/routes/users.js).
 - **Security**: CORS allowlist from `CLIENT_ORIGIN` with credentials, JSON
   bodies capped at 100 kB, login and signup limited to 20 attempts per 15
-  minutes per IP, the directory to 60 requests per minute. Login returns the
-  same error for an unknown email and a wrong password. Search input is
-  regex-escaped before it reaches MongoDB, and the directory never returns
-  emails or password hashes.
+  minutes per IP, the directory to 60 requests per minute and `/me` to 120.
+  Login returns the same error for an unknown email and a wrong password.
+  Search input is regex-escaped before it reaches MongoDB, and the directory
+  never returns emails or password hashes.
 - **Deploy**: [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
   builds the client with `BASE_PATH=/mca_nitw/`, copies `index.html` to
   `404.html` so deep links work on Pages, and deploys it.
@@ -138,13 +144,13 @@ The client moved from Create React App 5 to Vite 8 in 1.6.0. Measured on the
 same machine (Node 26.10, npm 11.20) on 2026-10-18, `main` before the move
 against this branch:
 
-| Client                                      | CRA 5 (before) | Vite 8 (after) |
-| ------------------------------------------- | -------------- | -------------- |
-| Installed packages (`npm ls --all`)         | 1,354          | 134            |
-| `npm audit` advisories                      | 53             | 0              |
-| Production build, warm (`npm run build`)    | 15.2 to 17.6 s | 1.7 to 1.8 s   |
-| `--legacy-peer-deps` needed                 | yes            | no             |
-| Main JS bundle, gzip (after adds auth code) | 97.48 kB       | 107.92 kB      |
+| Client                              | CRA 5 (before) | Vite 8 (after) |
+| ----------------------------------- | -------------- | -------------- |
+| Installed packages (`npm ls --all`) | 1,354          | 133            |
+| `npm audit` advisories              | 53             | 0              |
+| Warm `npm run build`                | 15.2 to 17.6 s | 1.7 to 1.8 s   |
+| `--legacy-peer-deps` needed         | yes            | no             |
+| Main JS bundle, gzip                | 97.48 kB       | 107.94 kB      |
 
 The bundle grew because 1.6.0 also adds the auth flow, the API client and the
 bundled demo data.
@@ -166,14 +172,14 @@ bundled demo data.
 
 ## API
 
-| Method | Path               | Auth   | Description                              |
-| ------ | ------------------ | ------ | ---------------------------------------- |
-| GET    | `/api/health`      | none   | Liveness check (`{ "ok": true }`)        |
-| POST   | `/api/auth/signup` | none   | `{ name, email, password, batch? }`, 201 |
-| POST   | `/api/auth/login`  | none   | `{ email, password }`, sets the cookie   |
-| POST   | `/api/auth/logout` | none   | Clears the cookie, 204                   |
-| GET    | `/api/auth/me`     | cookie | Current user, 401 when signed out        |
-| GET    | `/api/users?q=`    | cookie | Up to 100 profiles, newest batch first   |
+| Method | Path               | Auth   | Description                          |
+| ------ | ------------------ | ------ | ------------------------------------ |
+| GET    | `/api/health`      | none   | Liveness check (`{ "ok": true }`)    |
+| POST   | `/api/auth/signup` | none   | Body `name, email, password, batch?` |
+| POST   | `/api/auth/login`  | none   | Body `email, password`, sets cookie  |
+| POST   | `/api/auth/logout` | none   | Clears the cookie, 204               |
+| GET    | `/api/auth/me`     | cookie | Current user, 401 when signed out    |
+| GET    | `/api/users?q=`    | cookie | Up to 100 profiles, by newest batch  |
 
 ## Project Structure
 
@@ -251,12 +257,14 @@ JWT_SECRET=replace-with-a-long-random-string
 CLIENT_ORIGIN=http://localhost:3000
 # optional: "none" when the client is on another site (needs HTTPS)
 COOKIE_SAMESITE=lax
+# optional, local only: npm run seed also creates demo@example.com with it
+SEED_DEMO_PASSWORD=mcanitw-demo
 ```
 
 ### Running
 
 ```bash
-# Load 10 sample alumni plus a demo account (demo@example.com / mcanitw-demo)
+# Load 10 sample alumni, plus demo@example.com when SEED_DEMO_PASSWORD is set
 npm run seed
 
 # Start both frontend and backend
@@ -299,9 +307,8 @@ npm run og-image                  # public/og.png from public/logo.svg
 2. Click **Deploy to Render** above. Render reads [`render.yaml`](render.yaml),
    generates `JWT_SECRET`, and asks for `CONNECTION_URL`.
 3. Skip `npm run seed` for a real deployment. It writes the 10 fictional
-   alumni and `demo@example.com` with the password printed in this README.
-   Only run it against a throwaway database, and set `SEED_DEMO_PASSWORD`
-   if that database is reachable by anyone else. Signup is open and does not
+   alumni, and with `SEED_DEMO_PASSWORD` set, a `demo@example.com` account.
+   Only run it against a throwaway database. Signup is open and does not
    verify email, so "members only" means anyone who registers.
 4. In the GitHub repo, add a repository variable `VITE_API_URL` with the
    Render URL (for example `https://mca-nitw-api.onrender.com`) and re-run the

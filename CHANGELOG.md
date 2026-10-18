@@ -5,13 +5,14 @@
 - Real accounts: `POST /api/auth/signup`, `/login`, `/logout` and
   `GET /api/auth/me`. Passwords are hashed with bcrypt (12 rounds) and the
   session is a 7-day JWT in an httpOnly cookie. Login and signup are limited
-  to 20 attempts per 15 minutes per IP
+  to 20 attempts per 15 minutes per IP, and `/me` to 120 per minute
 - Alumni directory reads the API: `GET /api/users?q=` (members only, emails
   never returned) replaces `GET /users/all`, and the search box queries it as
   you type with `?q=` kept in the URL
-- `npm run seed` loads 10 sample alumni and a demo account from
-  `client/src/data/alumni.json`; the `User` schema gains email, password hash,
-  company, designation, location and LinkedIn, and `Batch` is now `batch`
+- `npm run seed` loads 10 sample alumni from `client/src/data/alumni.json`,
+  plus a demo account when `SEED_DEMO_PASSWORD` is set; the `User` schema
+  gains email, password hash, company, designation, location and LinkedIn,
+  and `Batch` is now `batch`
 - Demo mode (`vite --mode demo`): the GitHub Pages build runs on the same
   bundled data with a tab-scoped session, so the live site works without a
   backend. Setting the `VITE_API_URL` repository variable switches it to the
@@ -21,9 +22,10 @@
   every render
 - Move the client from Create React App 5 to Vite 8 and from
   `react-router-dom` 7 to `react-router` 8. Client `npm audit` goes from 53
-  advisories to 0, installed packages from 1,354 to 134, and a production
-  build from about 16 s to under 2 s; `--legacy-peer-deps` and the CRA override block
-  are gone
+  advisories to 0, installed packages from 1,354 to 133, and a production
+  build from about 16 s to under 2 s; `--legacy-peer-deps` and the CRA
+  override block are gone. The unused `@fontsource/roboto` package is dropped;
+  Roboto still loads from Google Fonts
 - Server: CORS allowlist from `CLIENT_ORIGIN` with credentials, 100 kB JSON
   limit (was 30 MB), JSON error responses, `/api/health`, no artificial 1 s
   delay, and the app split into `app.js`, `auth.js` and `routes/`. `nodemon`

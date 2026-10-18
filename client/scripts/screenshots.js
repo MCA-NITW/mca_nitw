@@ -7,6 +7,7 @@
 // Builds with `--mode demo`, serves it with `vite preview`, signs in with the
 // demo flow, and writes WebP files to docs/screenshots/. Chromium does the
 // WebP encoding through canvas, so there is no image library to install.
+import { randomUUID } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import { build, preview } from "vite";
 import { chromium } from "playwright";
@@ -70,32 +71,43 @@ const server = await preview({ preview: { port: PORT, strictPort: true } });
 const browser = await chromium.launch();
 await mkdir(OUT, { recursive: true });
 
-try {
-  for (const shot of shots) {
-    const page = await browser.newPage({
-      viewport: shot.viewport,
-      deviceScaleFactor: shot.scale ?? 1,
-    });
-    if (shot.signIn) {
-      await page.goto(`${BASE}/auth?mode=login`);
-      await page.fill("input[name=email]", "demo@example.com");
-      await page.fill("input[name=password]", "mcanitw-demo");
-      await page.click("button[type=submit]");
-      await page.waitForURL(`${BASE}/`);
-    }
-    await page.goto(`${BASE}${shot.path}`);
-    await page.waitForLoadState("networkidle");
-    if (shot.dark) {
-      await page.click("#root > div > div:first-child button");
-    }
-    // Let web fonts and the card hover transition settle
-    await page.waitForTimeout(400);
-    const webp = await toWebp(page, await page.screenshot());
-    const bytes = Buffer.from(webp, "base64");
-    await writeFile(new URL(shot.file, OUT), bytes);
-    console.log(`${shot.file}  ${(bytes.length / 1024).toFixed(1)} KiB`);
-    await page.close();
+// Each shot gets its own page, and so its own demo session, so they run in
+// parallel
+const capture = async shot => {
+  const page = await browser.newPage({
+    viewport: shot.viewport,
+    deviceScaleFactor: shot.scale ?? 1,
+  });
+  if (shot.signIn) {
+    // Demo mode accepts any email with an 8+ character password
+    await page.goto(`${BASE}/auth?mode=login`);
+    await page.fill("input[name=email]", "demo@example.com");
+    await page.fill("input[name=password]", randomUUID());
+    await page.click("button[type=submit]");
+    await page.waitForURL(`${BASE}/`);
   }
+  await page.goto(`${BASE}${shot.path}`);
+  await page.waitForLoadState("networkidle");
+  if (shot.dark) {
+    await page.click("#root > div > div:first-child button");
+  }
+  // Let web fonts load and the theme and hover transitions finish
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    const finite = document
+      .getAnimations()
+      .filter(a => a.effect?.getComputedTiming().iterations !== Infinity);
+    await Promise.all(finite.map(a => a.finished.catch(() => {})));
+  });
+  const webp = await toWebp(page, await page.screenshot());
+  const bytes = Buffer.from(webp, "base64");
+  await writeFile(new URL(shot.file, OUT), bytes);
+  console.log(`${shot.file}  ${(bytes.length / 1024).toFixed(1)} KiB`);
+  await page.close();
+};
+
+try {
+  await Promise.all(shots.map(capture));
 } finally {
   await browser.close();
   await new Promise(resolve => server.httpServer.close(resolve));

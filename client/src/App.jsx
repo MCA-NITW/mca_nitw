@@ -132,7 +132,7 @@ function App() {
       ],
       { basename }
     );
-  }, [session, checkingSession]);
+  }, [session, checkingSession, isloggedin]);
   return (
     <div>
       <Mode mode={mode} setMode={setMode} />

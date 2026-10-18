@@ -33,7 +33,7 @@ Official web portal for the MCA department at NIT Warangal: alumni network, stud
 
 ```
 npm install && npm run set-env    # root deps + client/ and server/ deps
-npm run seed                      # 10 sample alumni + demo@example.com / mcanitw-demo
+npm run seed                      # 10 sample alumni (+ demo@example.com if SEED_DEMO_PASSWORD)
 npm run dev                       # frontend :3000 + backend :5000 via concurrently
 cd client && npm run build        # production build (Vite, dist/)
 cd client && npx vite --mode demo # frontend only, bundled data, no backend

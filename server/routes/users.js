@@ -11,7 +11,8 @@ const MAX_RESULTS = 100;
 const SEARCH_FIELDS = ["name", "batch", "company", "designation", "location"];
 
 // User input goes into a RegExp, so escape every metacharacter first
-const escapeRegex = text => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escapeRegex = text =>
+  text.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
 
 // GET /api/users?q=amazon -> alumni directory, signed-in members only
 router.get("/", usersLimiter, requireAuth, async (req, res) => {

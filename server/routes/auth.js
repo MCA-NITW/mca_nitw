@@ -13,6 +13,9 @@ const credentialLimiter = rateLimit({
   message: { message: "Too many attempts, try again in 15 minutes" },
 });
 
+// The client asks /me on every page load, so a looser per-minute budget
+const sessionLimiter = rateLimit({ windowMs: 60 * 1000, limit: 120 });
+
 const MAX_EMAIL = 120;
 const MIN_PASSWORD = 8;
 // bcrypt only reads the first 72 bytes; the cap also bounds hashing cost
@@ -92,7 +95,7 @@ router.post("/logout", (req, res) => {
   res.status(204).end();
 });
 
-router.get("/me", requireAuth, async (req, res) => {
+router.get("/me", sessionLimiter, requireAuth, async (req, res) => {
   const user = await User.findById(req.userId);
   if (!user) {
     clearSessionCookie(res);

@@ -3,14 +3,14 @@
 React 19 frontend for the MCA NITW portal, built with Vite 8. See the
 [root README](../README.md) for the full setup.
 
-| Command                | What it does                                         |
-| ---------------------- | ---------------------------------------------------- |
-| `npm run dev`          | Dev server on port 3000, `/api` proxied to port 5000 |
-| `npx vite --mode demo` | Dev server on bundled demo data, no backend needed   |
-| `npm run build`        | Production build into `dist/`                        |
-| `npm run preview`      | Serve `dist/` on port 4173                           |
-| `npm run screenshots`  | Rebuild `docs/screenshots/*.webp` with Playwright    |
-| `npm run og-image`     | Render `public/og.png` from `public/logo.svg`        |
+| Command                | What it does                                       |
+| ---------------------- | -------------------------------------------------- |
+| `npm run dev`          | Dev server on port 3000, `/api` proxied to 5000    |
+| `npx vite --mode demo` | Dev server on bundled demo data, no backend needed |
+| `npm run build`        | Production build into `dist/`                      |
+| `npm run preview`      | Serve `dist/` on port 4173                         |
+| `npm run screenshots`  | Rebuild `docs/screenshots/*.webp` with Playwright  |
+| `npm run og-image`     | Render `public/og.png` from `public/logo.svg`      |
 
 Build-time variables:
 

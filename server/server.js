@@ -11,14 +11,11 @@ if (!CONNECTION_URL || !JWT_SECRET) {
   process.exit(1);
 }
 
-mongoose
-  .connect(CONNECTION_URL)
-  .then(() =>
-    createApp().listen(PORT, () =>
-      console.log(`Server running on port: ${PORT}`)
-    )
-  )
-  .catch(error => {
-    console.error(error.message);
-    process.exit(1);
-  });
+try {
+  await mongoose.connect(CONNECTION_URL);
+} catch (error) {
+  console.error(error.message);
+  process.exit(1);
+}
+
+createApp().listen(PORT, () => console.log(`Server running on port: ${PORT}`));
