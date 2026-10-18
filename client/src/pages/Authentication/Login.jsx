@@ -1,26 +1,47 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router";
 import classes from "./Authentication.module.css";
 import { FaFacebookF, FaGoogle, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { api, IS_DEMO } from "../../lib/api";
+import useAuthForm from "./useAuthForm";
+import { TEXT } from "../../lib/text";
 
 const Login = props => {
-  const navigate = useNavigate();
-  const onSubmitHandler = () => {
-    props.setisloggedin(true);
-    navigate("/");
-  };
+  const { onSubmit, error, pending } = useAuthForm(
+    api.login,
+    props.onAuthenticated
+  );
 
   return (
     <div className={classes.card}>
       <div className={classes.heading}>Login</div>
+      {IS_DEMO && <p className={classes.notice}>{TEXT.demoLogin}</p>}
       <div className={classes.form}>
-        <div className={classes.formGroup}>
-          <input type="text" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button onClick={onSubmitHandler} type="submit">
-            Login
+        <form className={classes.formGroup} onSubmit={onSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            autoComplete="email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            autoComplete="current-password"
+            minLength={8}
+            required
+          />
+          {error && (
+            <p className={classes.error} role="alert">
+              {error}
+            </p>
+          )}
+          <button type="submit" disabled={pending}>
+            {pending ? "Signing in..." : "Login"}
           </button>
-        </div>
+        </form>
       </div>
       <div className={classes.link}>
         <Link to="/auth?mode=signup">Don't have an account? Sign Up</Link>

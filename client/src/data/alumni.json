@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Sagar Gupta",
+    "email": "sagar.gupta@example.com",
+    "batch": "2021-2024",
+    "company": "Amazon Web Services",
+    "designation": "ProServe (Cloud Consultant) - DevOps/MLOps",
+    "location": "Bengaluru",
+    "linkedin": "https://www.linkedin.com/in/sagar-gupta-16-10/"
+  },
+  {
+    "name": "Ananya Rao",
+    "email": "ananya.rao@example.com",
+    "batch": "2021-2024",
+    "company": "Microsoft",
+    "designation": "Software Engineer",
+    "location": "Hyderabad"
+  },
+  {
+    "name": "Rohit Verma",
+    "email": "rohit.verma@example.com",
+    "batch": "2021-2024",
+    "company": "Infosys",
+    "designation": "Systems Engineer",
+    "location": "Pune"
+  },
+  {
+    "name": "Priya Nair",
+    "email": "priya.nair@example.com",
+    "batch": "2020-2023",
+    "company": "Google",
+    "designation": "Site Reliability Engineer",
+    "location": "Bengaluru"
+  },
+  {
+    "name": "Karthik Reddy",
+    "email": "karthik.reddy@example.com",
+    "batch": "2020-2023",
+    "company": "Oracle",
+    "designation": "Member of Technical Staff",
+    "location": "Hyderabad"
+  },
+  {
+    "name": "Sneha Patil",
+    "email": "sneha.patil@example.com",
+    "batch": "2020-2023",
+    "company": "Deloitte",
+    "designation": "Data Analyst",
+    "location": "Mumbai"
+  },
+  {
+    "name": "Arjun Mehta",
+    "email": "arjun.mehta@example.com",
+    "batch": "2019-2022",
+    "company": "Adobe",
+    "designation": "Frontend Engineer",
+    "location": "Noida"
+  },
+  {
+    "name": "Divya Iyer",
+    "email": "divya.iyer@example.com",
+    "batch": "2019-2022",
+    "company": "TCS",
+    "designation": "Cloud Engineer",
+    "location": "Chennai"
+  },
+  {
+    "name": "Vikram Singh",
+    "email": "vikram.singh@example.com",
+    "batch": "2018-2021",
+    "company": "Flipkart",
+    "designation": "Senior Software Engineer",
+    "location": "Bengaluru"
+  },
+  {
+    "name": "Meera Joshi",
+    "email": "meera.joshi@example.com",
+    "batch": "2018-2021",
+    "company": "Accenture",
+    "designation": "Machine Learning Engineer",
+    "location": "Gurugram"
+  }
+]

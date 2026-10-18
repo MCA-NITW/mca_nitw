@@ -1,21 +1,18 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router";
 import classes from "./sidenavbar.module.css";
+import { TEXT } from "../../lib/text";
 
 const SideNavBar = props => {
   const NavLinks = props.SideNavLinks;
-
-  const setisloggedin = () => {
-    props.setisloggedin(false);
-  };
 
   return (
     <div className={classes.sidenavbar}>
       <div className={classes.sidenavbar__logo}>
         <Link to="/">
           <img
-            src="https://static.vecteezy.com/system/resources/previews/013/389/534/non_2x/mca-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-free-vector.jpg"
-            alt="logo"
+            src={`${import.meta.env.BASE_URL}favicon.svg`}
+            alt="MCA NIT Warangal"
           />
         </Link>
       </div>
@@ -36,8 +33,8 @@ const SideNavBar = props => {
       </div>
       <div className={classes.sidenavbar__btns}>
         <Link to="/">
-          <button onClick={setisloggedin} className={classes.btn}>
-            Log Out
+          <button onClick={props.onLogout} className={classes.btn}>
+            {TEXT.logOut}
           </button>
         </Link>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import classes from "./AuthNavigation.module.css";
 import { MdFastRewind } from "react-icons/md";
 
@@ -12,8 +12,8 @@ const AuthNavigation = () => {
       </Link>
       <div className={classes.logo}>
         <img
-          src="https://static.vecteezy.com/system/resources/previews/013/389/534/non_2x/mca-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-free-vector.jpg"
-          alt="Logo"
+          src={`${import.meta.env.BASE_URL}logo.svg`}
+          alt="MCA NIT Warangal"
         />
       </div>
     </div>

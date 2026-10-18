@@ -15,7 +15,9 @@ outside contributors are both welcome.
 ## Local setup
 
 See [Getting Started](README.md#getting-started) in the README. The backend
-needs `server/.env` with `CONNECTION_URL` and `PORT`, as shown there. Never
+needs `server/.env` with `CONNECTION_URL`, `PORT` and `JWT_SECRET`, as shown
+there; `npm run seed` loads sample alumni. Without MongoDB, run the client in
+demo mode with `npx vite --mode demo`. Never
 commit `.env`.
 
 ## Checks
@@ -26,16 +28,17 @@ CI runs these on every pull request. Run them locally from the repo root first:
 npm run format                    # Prettier, must leave no diff
 
 cd client
-npm ci --legacy-peer-deps
-npm run build                     # CRA production build
+npm ci
+npm run build                     # Vite production build
+npm run build -- --mode demo      # demo build, the one GitHub Pages ships
 
 cd ../server
-npm ci --legacy-peer-deps
-node --check server.js            # server syntax check
+npm ci
+for f in *.js models/*.js routes/*.js; do node --check "$f"; done
 ```
 
-`--legacy-peer-deps` is needed in `client/` because Create React App 5 declares
-older React peer ranges.
+For UI changes, `npm run screenshots` in `client/` regenerates the README
+screenshots (run `npx playwright install chromium` once first).
 
 ## Commit messages
 

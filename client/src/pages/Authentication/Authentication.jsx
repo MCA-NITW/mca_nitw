@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router";
 import Login from "./Login";
 import Signup from "./Signup";
 import AuthNavigation from "../../Layout/AuthNavigation";
@@ -13,7 +13,11 @@ const Authentication = props => {
     <div>
       <AuthNavigation />
       <div className={classes.auth_container}>
-        {isLogin ? <Login setisloggedin={props.setisloggedin} /> : <Signup />}
+        {isLogin ? (
+          <Login onAuthenticated={props.onAuthenticated} />
+        ) : (
+          <Signup onAuthenticated={props.onAuthenticated} />
+        )}
       </div>
     </div>
   );
