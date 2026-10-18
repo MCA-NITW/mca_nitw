@@ -4,6 +4,7 @@
 
 - Fix server startup: Mongoose 9 rejects the `useNewUrlParser` and `useUnifiedTopology` options, so the server failed with `MongoParseError` and never listened
 - Serve `/users/all` with `app.get` instead of `app.use`, so other methods return 404
+- Rate limit `/users/all` to 60 requests per minute per IP with `express-rate-limit` (CodeQL `js/missing-rate-limiting`)
 - Patch critical shell-quote advisory GHSA-pqg4-j6r4-53mv by raising the override to `>=1.11.0` in root and client
 - Refresh server and root dependencies within their ranges (Express 5.3, Mongoose 9.11, dotenv 18.0.8, concurrently 10.0.6, Prettier 3.9)
 - Deploy the client to GitHub Pages from `main` with a `basename`-aware router and an SPA 404 fallback
