@@ -298,7 +298,11 @@ npm run og-image                  # public/og.png from public/logo.svg
 1. Create a MongoDB Atlas cluster and copy its connection string.
 2. Click **Deploy to Render** above. Render reads [`render.yaml`](render.yaml),
    generates `JWT_SECRET`, and asks for `CONNECTION_URL`.
-3. Run `npm run seed` once with `CONNECTION_URL` pointing at Atlas.
+3. Skip `npm run seed` for a real deployment. It writes the 10 fictional
+   alumni and `demo@example.com` with the password printed in this README.
+   Only run it against a throwaway database, and set `SEED_DEMO_PASSWORD`
+   if that database is reachable by anyone else. Signup is open and does not
+   verify email, so "members only" means anyone who registers.
 4. In the GitHub repo, add a repository variable `VITE_API_URL` with the
    Render URL (for example `https://mca-nitw-api.onrender.com`) and re-run the
    Pages workflow. With the variable set, the site builds against the API
