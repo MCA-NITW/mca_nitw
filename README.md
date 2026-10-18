@@ -36,7 +36,7 @@ The frontend shell, routing, theming and page layouts are built. Most data is st
 ```mermaid
 flowchart LR
     subgraph Browser
-        A[React 19 SPA<br/>Create React App] --> R[React Router 7<br/>createBrowserRouter]
+        A[React 19 SPA<br/>Create React App] --> R[react-router-dom 7<br/>createBrowserRouter]
         R --> P[Pages<br/>CSS Modules + Bootstrap]
         R -. route loader .-> L[Alumni loader<br/>hardcoded list today]
     end
@@ -68,7 +68,7 @@ flowchart LR
 
 | Layer      | Technology                                                                                |
 | ---------- | ----------------------------------------------------------------------------------------- |
-| Frontend   | React 19, React Router 7, Create React App 5, CSS Modules, Bootstrap 5, react-icons       |
+| Frontend   | React 19, react-router-dom 7, Create React App 5, CSS Modules, Bootstrap 5, react-icons   |
 | Backend    | Node.js, Express 5 (ESM), Mongoose 9, MongoDB                                             |
 | Tooling    | Prettier, GitHub Actions (format check, security scan, client build, server syntax check) |
 | Deployment | GitHub Pages (client)                                                                     |

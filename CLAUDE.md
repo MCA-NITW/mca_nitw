@@ -16,7 +16,7 @@ Official web portal for the MCA department at NIT Warangal: alumni network, stud
 ## Stack
 
 - **Language**: JavaScript (no TypeScript)
-- **Frontend**: React 19 on Create React App (react-scripts 5), CSS Modules, Bootstrap 5, React Router 7 (MUI 9 is installed but unused)
+- **Frontend**: React 19 on Create React App (react-scripts 5), CSS Modules, Bootstrap 5, react-router-dom 7 (`client/package.json` overrides its `react-router` dependency to 8, so the lock resolves react-router 8.3.1 under react-router-dom 7.18.3; MUI 9 is installed but unused)
 - **Backend**: Express 5 (ESM), Mongoose 9
 - **Database**: MongoDB (Atlas or local)
 - **Package manager**: npm (org convention, package-lock.json committed)

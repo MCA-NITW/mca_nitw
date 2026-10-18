@@ -46,7 +46,7 @@ body.dark {
 }
 
 @media screen and (max-width: 768px) {
-  /* The side nav stacks above the content on phones, so drop its offset */
+  /* The side nav becomes a bottom tab bar on phones, so drop its offset */
   .main-body section {
     margin-left: 1rem;
   }
