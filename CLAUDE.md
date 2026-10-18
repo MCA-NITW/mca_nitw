@@ -16,7 +16,10 @@ Official web portal for the MCA department at NIT Warangal: alumni network, stud
 ## Stack
 
 - **Language**: JavaScript (no TypeScript)
-- **Frontend**: React 19 on Create React App (react-scripts 5), CSS Modules, Bootstrap 5, react-router-dom 7 (`client/package.json` overrides its `react-router` dependency to 8, so the lock resolves react-router 8.3.1 under react-router-dom 7.18.3; MUI 9 is installed but unused)
+- **Frontend**: React 19 on Create React App (react-scripts 5), CSS Modules,
+  Bootstrap 5, react-router-dom 7 (`client/package.json` overrides its
+  `react-router` dependency to 8, so the lock resolves react-router 8.3.1 under
+  react-router-dom 7.18.3; MUI 9 is installed but unused)
 - **Backend**: Express 5 (ESM), Mongoose 9
 - **Database**: MongoDB (Atlas or local)
 - **Package manager**: npm (org convention, package-lock.json committed)
@@ -56,7 +59,9 @@ live server check, run it against a throwaway MongoDB and hit `GET /users/all`.
 - `npm ci --legacy-peer-deps` is required in `client/` (React 19 vs CRA peer ranges); CI already does this.
 - Heavy `overrides` blocks in all three package.json files pin transitive deps for security alerts -- keep them when bumping deps.
 - Backend has exactly one route so far; the Authentication pages are client-side forms with no server endpoints behind them yet.
-- Never pass `useNewUrlParser`/`useUnifiedTopology` to `mongoose.connect`: Mongoose 9 throws `MongoParseError` and the server never listens (fixed in 1.5.0).
+- Never pass `useNewUrlParser`/`useUnifiedTopology` to `mongoose.connect`:
+  Mongoose 9 throws `MongoParseError` and the server never listens (fixed in
+  1.5.0).
 - `PUBLIC_URL=/mca_nitw` in Git Bash gets rewritten to a Windows path; prefix
   local builds with `MSYS_NO_PATHCONV=1`.
 

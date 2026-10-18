@@ -1,6 +1,7 @@
 # MCA NITW
 
-Web portal for the MCA department at NIT Warangal -- alumni networking, student profiles, study materials, placement cell coordination, and academic resources.
+Web portal for the MCA department at NIT Warangal -- alumni networking, student
+profiles, study materials, placement cell coordination, and academic resources.
 
 [![CI](https://github.com/MCA-NITW/mca_nitw/actions/workflows/ci.yml/badge.svg)](https://github.com/MCA-NITW/mca_nitw/actions/workflows/ci.yml)
 [![Deploy](https://github.com/MCA-NITW/mca_nitw/actions/workflows/pages.yml/badge.svg)](https://github.com/MCA-NITW/mca_nitw/actions/workflows/pages.yml)
@@ -9,7 +10,8 @@ Web portal for the MCA department at NIT Warangal -- alumni networking, student 
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 ![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
 
-**Live demo:** [mca-nitw.github.io/mca_nitw](https://mca-nitw.github.io/mca_nitw/) (frontend only, deployed from `main` by GitHub Actions)
+**Live demo:** [mca-nitw.github.io/mca_nitw](https://mca-nitw.github.io/mca_nitw/)
+(frontend only, deployed from `main` by GitHub Actions)
 
 ## Overview
 
