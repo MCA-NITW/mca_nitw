@@ -11,7 +11,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use("/users/all", async (req, res, next) => {
+app.get("/users/all", async (req, res) => {
   const allUsers = await User.find();
   setTimeout(() => {
     return res.json({ message: "Fetch Successful", users: allUsers });
@@ -19,10 +19,7 @@ app.use("/users/all", async (req, res, next) => {
 });
 
 mongoose
-  .connect(process.env.CONNECTION_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.CONNECTION_URL)
   .then(() =>
     app.listen(process.env.PORT, () =>
       console.log(`Server running on port: ${process.env.PORT}`)
