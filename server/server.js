@@ -1,32 +1,24 @@
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
+// Load server/.env before any module reads process.env
+import "dotenv/config";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-import rateLimit from "express-rate-limit";
-import User from "./models/User.js";
-dotenv.config();
+import { createApp } from "./app.js";
 
-const app = express();
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+const { CONNECTION_URL, JWT_SECRET } = process.env;
+const PORT = process.env.PORT || 5000;
 
-// Every hit runs a full collection scan, so cap it per IP
-const usersLimiter = rateLimit({ windowMs: 60 * 1000, limit: 60 });
-
-app.get("/users/all", usersLimiter, async (req, res) => {
-  const allUsers = await User.find();
-  setTimeout(() => {
-    return res.json({ message: "Fetch Successful", users: allUsers });
-  }, 1000);
-});
+if (!CONNECTION_URL || !JWT_SECRET) {
+  console.error("Set CONNECTION_URL and JWT_SECRET in server/.env");
+  process.exit(1);
+}
 
 mongoose
-  .connect(process.env.CONNECTION_URL)
+  .connect(CONNECTION_URL)
   .then(() =>
-    app.listen(process.env.PORT, () =>
-      console.log(`Server running on port: ${process.env.PORT}`)
+    createApp().listen(PORT, () =>
+      console.log(`Server running on port: ${PORT}`)
     )
   )
-  .catch(error => console.log(error.message));
+  .catch(error => {
+    console.error(error.message);
+    process.exit(1);
+  });
