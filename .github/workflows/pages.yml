@@ -30,22 +30,26 @@ jobs:
           cache-dependency-path: client/package-lock.json
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps --ignore-scripts
+        run: npm ci --ignore-scripts
 
-      - name: Build (CRA) for /mca_nitw/
-        run: npm run build
+      # With no VITE_API_URL repository variable the site builds in demo mode
+      # (bundled alumni data, sign-in kept in the tab). Set the variable to a
+      # deployed API URL to switch the live site to real accounts.
+      - name: Build (Vite) for /mca_nitw/
+        run: npm run build -- --mode "$BUILD_MODE"
         env:
-          CI: true
-          PUBLIC_URL: /mca_nitw
+          BASE_PATH: /mca_nitw/
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          BUILD_MODE: ${{ vars.VITE_API_URL && 'production' || 'demo' }}
 
       # GitHub Pages has no SPA rewrites; serving index.html as the 404 page
       # lets deep links like /mca_nitw/contact load the React router.
       - name: Add SPA fallback
-        run: cp build/index.html build/404.html
+        run: cp dist/index.html dist/404.html
 
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: client/build
+          path: client/dist
 
   deploy:
     name: Deploy

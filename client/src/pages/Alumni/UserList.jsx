@@ -6,7 +6,7 @@ const UserList = props => {
   return (
     <div className={classes.userList}>
       {props.allUsers.map(user => (
-        <IndividualUser user={user} key={user.key} />
+        <IndividualUser user={user} key={user.id} />
       ))}
     </div>
   );

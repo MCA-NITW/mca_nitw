@@ -1,25 +1,78 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import UserList from "./UserList";
 import { fallback } from "../../Layout/fallback";
-import { Await, useLoaderData } from "react-router-dom";
+import { Await, Form, useLoaderData, useSubmit } from "react-router";
 import { BiSearch } from "react-icons/bi";
+import { api } from "../../lib/api";
 
 import classes from "./Alumni.module.css";
 
+const SEARCH_DELAY_MS = 300;
+
 const Alumni = () => {
-  const data = useLoaderData();
-  const allUsers = data.users;
+  const { users, q } = useLoaderData();
+  const submit = useSubmit();
+  const timer = useRef();
+  const inputRef = useRef();
+
+  // Back/forward changes ?q= without remounting, so keep the box in sync
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.value = q;
+  }, [q]);
+
+  useEffect(() => () => clearTimeout(timer.current), []);
+
+  // Search as you type: each pause re-runs the loader with ?q=, replacing
+  // the history entry so Back does not step through every keystroke
+  const onChange = event => {
+    const form = event.currentTarget.form;
+    clearTimeout(timer.current);
+    timer.current = setTimeout(
+      () => submit(form, { replace: true }),
+      SEARCH_DELAY_MS
+    );
+  };
+
   return (
     <section className={classes.Alumni_main}>
-      <div className={classes.search}>
-        <input placeholder="Search..." className={classes.search_input} />
-        <button className={classes.search_btn}>
+      <Form method="get" role="search" className={classes.search}>
+        <input
+          ref={inputRef}
+          type="search"
+          name="q"
+          defaultValue={q}
+          onChange={onChange}
+          placeholder="Name, batch, company or city"
+          aria-label="Search alumni"
+          className={classes.search_input}
+        />
+        <button
+          type="submit"
+          className={classes.search_btn}
+          aria-label="Search"
+        >
           <BiSearch />
         </button>
-      </div>
+      </Form>
       <Suspense fallback={fallback}>
-        <Await resolve={allUsers}>
-          {allUsers => <UserList allUsers={allUsers} />}
+        <Await
+          resolve={users}
+          errorElement={
+            <p className={classes.status}>
+              Could not load the alumni directory. Try again in a moment.
+            </p>
+          }
+        >
+          {allUsers => (
+            <>
+              <p className={classes.status} aria-live="polite">
+                {allUsers.length === 0
+                  ? `No alumni match "${q}"`
+                  : `${allUsers.length} ${allUsers.length === 1 ? "member" : "members"}${q ? ` matching "${q}"` : ""}`}
+              </p>
+              <UserList allUsers={allUsers} />
+            </>
+          )}
         </Await>
       </Suspense>
     </section>
@@ -28,31 +81,9 @@ const Alumni = () => {
 
 export default Alumni;
 
-const userLoader = async () => {
-  return [
-    {
-      key: 1,
-      id: 1,
-      name: "Sagar Gupta",
-      Institute: "NIT Warangal",
-      Batch: "2021-2024",
-    },
-  ];
-
-  // try{
-  //   const res = await fetch("http://localhost:9000/users/all");
-  //   const resData = await res.json();
-  //   return resData;
-  // }
-  // catch(err){
-  //   console.log("Unable to fetch users");
-  // }
-};
-
-export const loader = () => {
-  // react-router v7 removed `defer`; return a plain object whose values are
-  // promises and let <Await> resolve them.
-  return {
-    users: userLoader(),
-  };
+export const loader = ({ request }) => {
+  const q = new URL(request.url).searchParams.get("q") ?? "";
+  // Return the promise unawaited so the page renders and <Await> streams the
+  // list in when it arrives
+  return { q, users: api.listAlumni({ q }) };
 };
