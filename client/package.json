@@ -32,7 +32,7 @@
   },
   "overrides": {
     "lodash": ">=4.18.0",
-    "shell-quote": ">=1.9.0",
+    "shell-quote": ">=1.11.0",
     "react-router": "^8.0.0",
     "qs": ">=6.16.0",
     "postcss": ">=8.5.23",

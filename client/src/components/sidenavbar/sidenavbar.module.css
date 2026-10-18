@@ -86,3 +86,50 @@
 .active {
   background-color: var(--bg-black-50);
 }
+
+@media screen and (max-width: 768px) {
+  /* On phones the side nav becomes a scrollable bottom tab bar */
+  .sidenavbar {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    overflow-x: auto;
+  }
+
+  .sidenavbar__logo {
+    display: none;
+  }
+
+  .sidenavbar__links {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .sidenavbar__links a {
+    width: auto;
+    margin-bottom: 0;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+
+  .sidenavbar__btns {
+    position: static;
+    width: auto;
+  }
+
+  .sidenavbar__btns .btn {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  body:has(.sidenavbar) {
+    padding-bottom: 4rem;
+  }
+}

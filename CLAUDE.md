@@ -16,11 +16,16 @@ Official web portal for the MCA department at NIT Warangal: alumni network, stud
 ## Stack
 
 - **Language**: JavaScript (no TypeScript)
-- **Frontend**: React 19 on Create React App (react-scripts 5), MUI 6, Bootstrap 5, React Router 7
-- **Backend**: Express 5 (ESM), Mongoose 8
+- **Frontend**: React 19 on Create React App (react-scripts 5), CSS Modules,
+  Bootstrap 5, react-router-dom 7 (`client/package.json` overrides its
+  `react-router` dependency to 8, so the lock resolves react-router 8.3.1 under
+  react-router-dom 7.18.3; MUI 9 is installed but unused)
+- **Backend**: Express 5 (ESM), Mongoose 9
 - **Database**: MongoDB (Atlas or local)
 - **Package manager**: npm (org convention, package-lock.json committed)
-- **Deploy target**: none yet -- runs locally only
+- **Deploy target**: GitHub Pages for the client via
+  `.github/workflows/pages.yml` (`PUBLIC_URL=/mca_nitw`, router `basename`,
+  `404.html` SPA fallback); the server is local only
 
 ## Run
 
@@ -32,7 +37,9 @@ cd client && npm run build        # production build (CRA)
 
 ## Test
 
-No test suite. Root and server `npm test` exit 1 by design. CI covers format check, security scan, client build, and `node --check server.js` only.
+No test suite. Root and server `npm test` exit 1 by design. CI covers format
+check, security scan, client build, and `node --check server.js` only. For a
+live server check, run it against a throwaway MongoDB and hit `GET /users/all`.
 
 ## Entry points
 
@@ -51,10 +58,12 @@ No test suite. Root and server `npm test` exit 1 by design. CI covers format che
 - Server needs `.env` in `server/` with `CONNECTION_URL` and `PORT` before it starts (dotenv). Never commit it.
 - `npm ci --legacy-peer-deps` is required in `client/` (React 19 vs CRA peer ranges); CI already does this.
 - Heavy `overrides` blocks in all three package.json files pin transitive deps for security alerts -- keep them when bumping deps.
-- README says PRs target `develop`, but CI triggers on `main` and origin/HEAD is `main`. Confirm target before opening PRs.
-- README's stack table says Express 4; `server/package.json` actually has Express 5.
 - Backend has exactly one route so far; the Authentication pages are client-side forms with no server endpoints behind them yet.
-- Mongoose connect passes `useNewUrlParser`/`useUnifiedTopology` -- deprecated no-ops in Mongoose 8, harmless but drop on touch.
+- Never pass `useNewUrlParser`/`useUnifiedTopology` to `mongoose.connect`:
+  Mongoose 9 throws `MongoParseError` and the server never listens (fixed in
+  1.5.0).
+- `PUBLIC_URL=/mca_nitw` in Git Bash gets rewritten to a Windows path; prefix
+  local builds with `MSYS_NO_PATHCONV=1`.
 
 ## Repo-specific rules
 

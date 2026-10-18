@@ -42,5 +42,12 @@ body.dark {
   background-color: var(--bg-black-100);
   box-shadow: var(--shadow-box);
   border-radius: var(--radius);
-  width: calc(100% - var(--main-body-section-margin-left));
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  /* The side nav becomes a bottom tab bar on phones, so drop its offset */
+  .main-body section {
+    margin-left: 1rem;
+  }
 }

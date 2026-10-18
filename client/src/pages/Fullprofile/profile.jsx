@@ -34,7 +34,7 @@ const experience = [
 const education = [
   {
     title: "B.Tech",
-    company: "ABC College",
+    school: "ABC College",
     location: "India",
     from: "2016",
     to: "2020",

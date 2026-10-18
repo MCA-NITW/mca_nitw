@@ -62,28 +62,31 @@ function App() {
     { id: 5, to: "/studymaterial", name: "Study Material" },
   ];
 
-  const Router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <div className="main-body">
-          <Navbar navLinks={navLinks} isloggedin={isloggedin} />
-          {isloggedin && (
-            <SideNavBar
-              SideNavLinks={SideNavLinks}
-              setisloggedin={setIsLoggedIn}
-            />
-          )}
-        </div>
-      ),
-      errorElement: <ErrorPage />,
-      children: links,
-    },
-    {
-      path: "/auth",
-      element: <Authentication setisloggedin={setIsLoggedIn} />,
-    },
-  ]);
+  const Router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: (
+          <div className="main-body">
+            <Navbar navLinks={navLinks} isloggedin={isloggedin} />
+            {isloggedin && (
+              <SideNavBar
+                SideNavLinks={SideNavLinks}
+                setisloggedin={setIsLoggedIn}
+              />
+            )}
+          </div>
+        ),
+        errorElement: <ErrorPage />,
+        children: links,
+      },
+      {
+        path: "/auth",
+        element: <Authentication setisloggedin={setIsLoggedIn} />,
+      },
+    ],
+    { basename: process.env.PUBLIC_URL || "/" }
+  );
 
   return (
     <div>

@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   format:
     name: Format Check
@@ -35,7 +38,7 @@ jobs:
           cache-dependency-path: client/package-lock.json
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps --ignore-scripts
 
       - name: Build (CRA)
         run: npm run build
@@ -59,7 +62,7 @@ jobs:
           cache-dependency-path: server/package-lock.json
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps --ignore-scripts
 
       - name: Verify server file parses
         run: node --check server.js

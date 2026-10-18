@@ -76,5 +76,27 @@
 }
 
 @media screen and (max-width: 768px) {
-  /* Add responsive styles for mobile view here */
+  .main_nav {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .main_nav .nav_logo img {
+    width: 3.5rem;
+    height: 2.8rem;
+  }
+
+  .main_nav .nav_links {
+    order: 3;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .main_nav .nav_links a {
+    letter-spacing: 0.05rem;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.5rem;
+  }
 }
