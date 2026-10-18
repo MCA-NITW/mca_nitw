@@ -10,7 +10,7 @@ const data = [
     role: "Full Stack Developer",
     about:
       "Problem Solver | Competitive Programmer | Full Stack Developer , I am a quick learner and a team player. I am always ready to learn new things and contribute to the community.",
-    linkedin: "https://www.linkedin.com/in/siddharth-singh-1a1b1b1b1/",
+    linkedin: "https://www.linkedin.com/in/sagar-gupta-16-10/",
     github: "https://github.com/Sagargupta16",
     instagram: "https://www.instagram.com/sagar_sethh/",
   },
@@ -63,7 +63,7 @@ const contact = () => {
         <h1>Contact the Team</h1>
         <div className="card">
           {data.map(item => {
-            return <Card data={item} />;
+            return <Card key={item.id} data={item} />;
           })}
         </div>
       </div>

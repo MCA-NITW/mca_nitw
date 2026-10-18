@@ -77,12 +77,37 @@ hr {
 @media screen and (max-width: 768px) {
   .profile {
     flex-direction: column;
-    width: 100%;
+    width: auto;
+    padding: 10px;
   }
 
   .profile_left,
   .profile_right {
     width: 100%;
+  }
+
+  .profile_left,
+  .profile_left_top,
+  .profile_left_top_upper,
+  .profile_left_top_upper_left,
+  .profile_left_top_upper_right,
+  .profile_left_top_middle,
+  .profile_left_top_lower,
+  .profile_left_middle,
+  .profile_right_c1,
+  .profile_right_c2,
+  .profile_right_c3,
+  .profile_right_c4 {
+    padding: 10px;
+  }
+
+  .profile_left_top_upper_left_img img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .profile a {
+    overflow-wrap: anywhere;
   }
 
   /* Adjustments for responsiveness */
